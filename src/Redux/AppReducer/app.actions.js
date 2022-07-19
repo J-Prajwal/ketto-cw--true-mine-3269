@@ -20,13 +20,26 @@ export const getdatasuccess=(payload)=>{
         payload
     }
 }
-export const getdata=(filter="",limit=10)=>(dispatch)=>{
-    dispatch(getdatarequest())
-    return axios.get(`https://qr1zme.sse.codesandbox.io/funds?_limit=${limit}`).then((res)=>{
-        console.log(res.data)
+export const getdata=(filter)=>(dispatch)=>{
+    if(filter&&filter!="all"){
+        dispatch(getdatarequest())
+    return axios.get(`https://qr1zme.sse.codesandbox.io/funds?category=${filter}`).then((res)=>{
+         console.log(res.data)
         dispatch(getdatasuccess(res.data))
     }).catch((err)=>{
         console.log(err)
         dispatch(getdatafailure())
     })
+    }
+    else{
+        dispatch(getdatarequest())
+        return axios.get(`https://qr1zme.sse.codesandbox.io/funds`).then((res)=>{
+            console.log(res.data)
+            dispatch(getdatasuccess(res.data))
+        }).catch((err)=>{
+            console.log(err)
+            dispatch(getdatafailure())
+    })
+    }
+    
 }

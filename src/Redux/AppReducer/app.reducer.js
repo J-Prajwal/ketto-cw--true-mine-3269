@@ -11,7 +11,8 @@ export const reducer = (state = initialState, { type, payload }) => {
     case(types.GET_DATA_SUCCESS):{
       return{
         ...state,
-        funds:payload
+        funds:payload,
+        isLoading:false,
       }
     }
     case(types.GET_DATA_REQUEST):{
