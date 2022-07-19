@@ -35,7 +35,7 @@ const Search = () => {
     },[value])
  
     useEffect(()=>{
-        dispatch(getdata("",3))
+        dispatch(getdata(3))
         
     },[])
   return (

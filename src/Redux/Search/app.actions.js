@@ -20,7 +20,7 @@ export const getdatasuccess=(payload)=>{
         payload
     }
 }
-export const getdata=(filter="",limit=10)=>(dispatch)=>{
+export const getdata=(limit)=>(dispatch)=>{
     dispatch(getdatarequest())
     return axios.get(`https://qr1zme.sse.codesandbox.io/funds?_limit=${limit}`).then((res)=>{
         
