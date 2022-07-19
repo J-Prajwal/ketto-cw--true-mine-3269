@@ -12,10 +12,9 @@ const MainRoutes = () => {
       <Route path="/" element={<Homepage />}></Route>
       <Route
         path="/crowdfunding/fundraisers/"
-        element={<BrowseFundraiser />}
-      ></Route>
+        element={<BrowseFundraiser />} ></Route>
       <Route
-        path="/new/crowdfunding/type=/:cat"
+        path="/new/crowdfunding/type=:cat"
         element={
           <RequiredAuth>
             <NewFundRaiser />

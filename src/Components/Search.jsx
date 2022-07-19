@@ -12,7 +12,7 @@ import {
 import { useDisclosure } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { getdata } from '../Redux/AppReducer/app.actions'
+import { getdata } from '../Redux/Search/app.actions'
 import { SearchResultCard } from './SearchResultCard'
 const Search = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
