@@ -21,10 +21,11 @@ export const getdatasuccess=(payload)=>{
     }
 }
 export const getdata=(filter)=>(dispatch)=>{
+     
     if(filter&&filter!="all"){
         dispatch(getdatarequest())
     return axios.get(`https://qr1zme.sse.codesandbox.io/funds?category=${filter}`).then((res)=>{
-         console.log(res.data)
+         
         dispatch(getdatasuccess(res.data))
     }).catch((err)=>{
         console.log(err)
@@ -34,7 +35,7 @@ export const getdata=(filter)=>(dispatch)=>{
     else{
         dispatch(getdatarequest())
         return axios.get(`https://qr1zme.sse.codesandbox.io/funds`).then((res)=>{
-            console.log(res.data)
+            
             dispatch(getdatasuccess(res.data))
         }).catch((err)=>{
             console.log(err)

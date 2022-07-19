@@ -12,7 +12,7 @@ import {
 import { useDisclosure } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
-import { getdata } from '../Redux/Search/app.actions'
+import { getdata} from "../Redux/AppReducer/app.actions"
 import { SearchResultCard } from './SearchResultCard'
 const Search = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -20,24 +20,24 @@ const Search = () => {
     
     const [value,setvalue]=useState("")
     const [suggestion,setSuggestion]=useState([])
-    const data=useSelector((state)=>state.searchReducer.funds)
-    
+    const data=useSelector((state)=>state.AppReducer.funds)
+   
     useEffect(()=>{
+       
+            dispatch(getdata())
+            
         if(!value){
             setSuggestion([])
         }else{
-            let newlistofsuggestions = data.filter((item)=> item.title.toLowerCase().indexOf(value)!==-1?true:false).map((item)=>item);
+            let newlistofsuggestions = data?.filter((item)=> item.title.toLowerCase().indexOf(value)!==-1?true:false).map((item)=>item);
         
             setSuggestion(newlistofsuggestions)
         }
-       
-         
+      
     },[value])
  
-    useEffect(()=>{
-        dispatch(getdata(3))
-        
-    },[])
+    
+    
   return (
     <>
       <Button fontWeight={400} leftIcon={<Search2Icon/>} variant="unstyled" onClick={onOpen}>
@@ -68,8 +68,11 @@ const Search = () => {
             
         <Container  maxW="container.xl" >
             
-                {suggestion?.map((el)=>{
-                    return <SearchResultCard key={el.id} {...el}/>
+                {suggestion?.map((el,index)=>{
+                    if(index<3){
+                        return <SearchResultCard key={el.id} {...el}/>
+                    }
+                   
                 })}
            
         </Container>

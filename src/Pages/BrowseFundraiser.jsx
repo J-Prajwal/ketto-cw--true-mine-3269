@@ -8,7 +8,7 @@ import { BrowserFundingCard } from '../Components/BrowserFundingCard'
 const BrowseFundraiser = () => {
   const [filter,setFilter]=useState("")
   const dispatch=useDispatch()
-  const data=useSelector((state)=>state.AppReducer.funds)
+  const funds=useSelector((state)=>state.AppReducer.funds)
   const isLoading=useSelector((state)=>state.AppReducer.isLoading)
  
   useEffect(()=>{
@@ -62,8 +62,8 @@ const BrowseFundraiser = () => {
             </HStack>
             {isLoading==true?<Box margin="auto"><Spinner width={10} height={10}textAlign="center"/></Box>:null
             }
-            {data?.length==0?<Text>No results found</Text>:<Grid templateColumns='repeat(3, 1fr)' gap={6} marginTop={10}>
-                  {data?.map((el)=>{
+            {funds?.length==0?<Text>No results found</Text>:<Grid templateColumns='repeat(3, 1fr)' gap={6} marginTop={10}>
+                  {funds?.map((el)=>{
                     return <GridItem  key={el.id}><BrowserFundingCard {...el}/></GridItem>
                   })}
             </Grid>}

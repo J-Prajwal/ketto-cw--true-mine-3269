@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container,HStack,Image,Select,option,Text,Button, Menu,
   MenuButton,
   MenuList,
@@ -12,8 +12,11 @@ import { Container,HStack,Image,Select,option,Text,Button, Menu,
  import {TriangleDownIcon,LinkIcon} from "@chakra-ui/icons"
 import Search from './Search'
  
+import { useDispatch } from 'react-redux'
+ 
 const Header = () => {
  const navigate=useNavigate()
+ 
   return (
     <Container padding={5} maxW='container.xl' className='navbarheader'>
         <HStack spacing="auto">
