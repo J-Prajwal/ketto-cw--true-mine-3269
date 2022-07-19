@@ -5,7 +5,7 @@ import {
     DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
-    DrawerContent,VStack,
+    DrawerContent,VStack,Divider,
     DrawerCloseButton,Button,Input,Container,HStack,Icon,Box,Link
   } from '@chakra-ui/react'
   import {Search2Icon,DeleteIcon} from "@chakra-ui/icons"
@@ -47,7 +47,7 @@ const Search = () => {
       <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
        <DrawerOverlay />
         <DrawerContent >
-        <Container maxW='container.xl'  borderBottom=".5px solid grey">
+        <Container maxW='container.xl' borderBottom=".5px solid grey" >
           <DrawerHeader border="none" borderBottomWidth='1px' fontSize={16} color="#30C9C8">SEARCH KETTO</DrawerHeader>
           <DrawerBody>
             <HStack>
@@ -58,6 +58,7 @@ const Search = () => {
            
           </DrawerBody>
           </Container>
+ 
           <Box margin="auto" >
             <Container margin={5}>
                     {suggestion.length===0&&value&& <p>Sorry, no results found</p>}
