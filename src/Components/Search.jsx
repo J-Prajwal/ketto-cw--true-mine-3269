@@ -5,23 +5,39 @@ import {
     DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
-    DrawerContent,
+    DrawerContent,VStack,
     DrawerCloseButton,Button,Input,Container,HStack,Icon,Box,Link
   } from '@chakra-ui/react'
   import {Search2Icon,DeleteIcon} from "@chakra-ui/icons"
 import { useDisclosure } from '@chakra-ui/react'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+import { getdata } from '../Redux/AppReducer/app.actions'
+import { SearchResultCard } from './SearchResultCard'
 const Search = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const dispatch=useDispatch()
+    
     const [value,setvalue]=useState("")
     const [suggestion,setSuggestion]=useState([])
-    const data=useSelector((state)=>state.AppReducer.funds)
-    console.log(data)
+    const data=useSelector((state)=>state.searchReducer.funds)
+    
     useEffect(()=>{
-        let newlistofsuggestions = data.filter((item)=> item.title.toLowerCase().indexOf(value)!==-1?true:false).map((item)=>item);
-        setSuggestion(newlistofsuggestions)
+        if(!value){
+            setSuggestion([])
+        }else{
+            let newlistofsuggestions = data.filter((item)=> item.title.toLowerCase().indexOf(value)!==-1?true:false).map((item)=>item);
+        
+            setSuggestion(newlistofsuggestions)
+        }
+       
+         
     },[value])
+ 
+    useEffect(()=>{
+        dispatch(getdata("",3))
+        
+    },[])
   return (
     <>
       <Button fontWeight={400} leftIcon={<Search2Icon/>} variant="unstyled" onClick={onOpen}>
@@ -45,8 +61,18 @@ const Search = () => {
           <Box margin="auto" >
             <Container margin={5}>
                     {suggestion.length===0&&value&& <p>Sorry, no results found</p>}
+
             </Container>
-        </Box>
+          </Box>
+            
+        <Container  maxW="container.xl" >
+            
+                {suggestion?.map((el)=>{
+                    return <SearchResultCard key={el.id} {...el}/>
+                })}
+           
+        </Container>
+           
           <Box backgroundColor="#F5F5F5" marginTop={10} minH="16">
              <Container maxW="container.xl" marginTop={4}>
                 <Link color="#30C9C8">Click here</Link> to view fundraisers you have supported on Ketto

@@ -7,11 +7,12 @@ import { Container,HStack,Link,Image,Select,option,Text,Button, Menu,
   MenuGroup,
   MenuOptionGroup,
   MenuDivider,} from '@chakra-ui/react'
+  import {useNavigate} from "react-router-dom"
  import {TriangleDownIcon,LinkIcon} from "@chakra-ui/icons"
 import Search from './Search'
  
 const Header = () => {
- 
+ const navigate=useNavigate()
   return (
     <Container padding={5} maxW='container.xl' >
         <HStack spacing="auto">
