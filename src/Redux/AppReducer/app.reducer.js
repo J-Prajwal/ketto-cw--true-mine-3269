@@ -1,4 +1,4 @@
-import * as types from "./app.actionTypes"
+import * as types from "./app.actionTypes";
 
 const initialState = {
   funds: [],
@@ -8,25 +8,26 @@ const initialState = {
 
 export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case(types.GET_DATA_SUCCESS):{
-      return{
+    case types.GET_DATA_SUCCESS: {
+      return {
         ...state,
-        funds:payload,
-        isLoading:false,
-      }
+        funds: payload,
+        isLoading: false,
+        isError: false,
+      };
     }
-    case(types.GET_DATA_REQUEST):{
-      return{
+    case types.GET_DATA_REQUEST: {
+      return {
         ...state,
-        isLoading:true
-      }
+        isLoading: true,
+      };
     }
-    case(types.GET_DATA_FAILURE):{
-      return{
+    case types.GET_DATA_FAILURE: {
+      return {
         ...state,
-        isLoading:false,
-        isError:true
-      }
+        isLoading: false,
+        isError: true,
+      };
     }
     default:
       return state;
