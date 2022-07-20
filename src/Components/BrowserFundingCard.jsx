@@ -9,7 +9,7 @@ export const BrowserFundingCard = ({mainImg,title,goal,daysLeft,supporters,raise
     tempgoal=+goal[1]
    
   return (
-    <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" _hover={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}} borderRadius={10}>
+    <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" _hover={{boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"}} borderRadius={10} cursor="pointer">
         <Image  borderTopRadius={10}src={mainImg}/>
         <Box height="auto">
         <Text padding={5} noOfLines={1} overflow="hidden" fontWeight={700}>{title}</Text>
