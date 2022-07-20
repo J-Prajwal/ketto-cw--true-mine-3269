@@ -24,7 +24,7 @@ export const Filter=({onChange})=>{
         <ListItem color={filter=="community_development"?"#30C9C8":"black"}cursor="pointer" onClick={()=>setFilter("community_development")}  >Community Development</ListItem>
         <ListItem color={filter=="others"?"#30C9C8":"black"} cursor="pointer" onClick={()=>setFilter("others")} fontWeight={700} >Others</ListItem>
         <Divider/>
-        <ListItem><Button variant="solid" background="#30C9C8" color="white" _hover={{background:"teal"}}>Start a Fundraiser</Button></ListItem>
+        <ListItem><Button width="100%" variant="solid" background="#30C9C8" color="white" _hover={{background:"teal"}}>Start a Fundraiser</Button></ListItem>
         </List>
      
 }
