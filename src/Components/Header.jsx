@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Container,HStack,Link,Image,Select,option,Text,Button, Menu,
+import React, { useEffect, useState } from 'react'
+import { Container,HStack,Image,Select,option,Text,Button, Menu,
   MenuButton,
   MenuList,
   MenuItem,
@@ -7,28 +7,33 @@ import { Container,HStack,Link,Image,Select,option,Text,Button, Menu,
   MenuGroup,
   MenuOptionGroup,
   MenuDivider,} from '@chakra-ui/react'
+  import {Link} from "react-router-dom"
+  import {useNavigate} from "react-router-dom"
  import {TriangleDownIcon,LinkIcon} from "@chakra-ui/icons"
 import Search from './Search'
  
+import { useDispatch } from 'react-redux'
+ 
 const Header = () => {
+ const navigate=useNavigate()
  
   return (
-    <Container padding={5} maxW='container.xl' >
+    <Container padding={5} maxW='container.xl' className='navbarheader'>
         <HStack spacing="auto">
             <HStack spacing={8} width="60%">
-              <Image marginTop={-5} width="70px" src="https://ketto.gumlet.io/assets/images/logo-light-bg.svg?w=70&dpr=1.0"/>
-              <Link _hover={{textDecoration:"none"}}>Browser Fundraiser</Link>
+              <Image cursor="pointer" onClick={()=>{navigate("/")}} marginTop={-5} width="70px" src="https://ketto.gumlet.io/assets/images/logo-light-bg.svg?w=70&dpr=1.0"/>
+              <Link to="/crowdfunding/fundraisers/" _hover={{textDecoration:"none"}}>Browser Fundraisers</Link>
               <Menu>
                 <MenuButton padding={2} fontWeight={400} variant="unstyled"  as={Button} rightIcon={<TriangleDownIcon fontSize={10}/>}>
                 Fundraiser For
                 </MenuButton>
                 <MenuList >
-                  <MenuItem  _hover={{ color: '#30C9C8' }} >Medical Treatment</MenuItem>
-                  <MenuItem  _hover={{ color: '#30C9C8' }}  >NGO / Charity</MenuItem>
-                  <MenuItem _hover={{ color: '#30C9C8' }}  >Other Cause</MenuItem>
+                  <MenuItem  _hover={{ color: '#30C9C8' }} onClick={()=>{navigate("new/crowdfunding/type=medical")}}>Medical Treatment</MenuItem>
+                  <MenuItem  _hover={{ color: '#30C9C8' }} onClick={()=>{navigate("new/crowdfunding/type=ngo")}} >NGO / Charity</MenuItem>
+                  <MenuItem _hover={{ color: '#30C9C8' }} onClick={()=>{navigate("new/crowdfunding/type=others")}}  >Other Cause</MenuItem>
                 </MenuList>
             </Menu>
-              <Link _hover={{textDecoration:"none"}}>How It Works</Link>
+              <Link to="/crowdfunding" _hover={{textDecoration:"none"}}>How It Works</Link>
                <Text> | </Text>
               <Search/>
             </HStack>

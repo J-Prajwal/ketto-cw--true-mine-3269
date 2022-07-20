@@ -5,23 +5,41 @@ import {
     DrawerFooter,
     DrawerHeader,
     DrawerOverlay,
-    DrawerContent,
+    DrawerContent,VStack,Divider,
     DrawerCloseButton,Button,Input,Container,HStack,Icon,Box,Link
   } from '@chakra-ui/react'
   import {Search2Icon,DeleteIcon} from "@chakra-ui/icons"
 import { useDisclosure } from '@chakra-ui/react'
 import { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector,useDispatch } from 'react-redux'
+// import { getdata} from "../Redux/AppReducer/app.actions"
+import { getdata } from '../Redux/Search/app.actions'
+import { SearchResultCard } from './SearchResultCard'
 const Search = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
+    const dispatch=useDispatch()
+    
     const [value,setvalue]=useState("")
     const [suggestion,setSuggestion]=useState([])
-    const data=useSelector((state)=>state.AppReducer.funds)
-    console.log(data)
+    // const data=useSelector((state)=>state.AppReducer.funds)
+
+   const data=useSelector((state)=>state.searchReducer.funds)
     useEffect(()=>{
-        let newlistofsuggestions = data.filter((item)=> item.title.toLowerCase().indexOf(value)!==-1?true:false).map((item)=>item);
-        setSuggestion(newlistofsuggestions)
+       
+            dispatch(getdata())
+            
+        if(!value){
+            setSuggestion([])
+        }else{
+            let newlistofsuggestions = data?.filter((item)=> item.title.toLowerCase().indexOf(value)!==-1?true:false).map((item)=>item);
+        
+            setSuggestion(newlistofsuggestions)
+        }
+      
     },[value])
+ 
+    
+    
   return (
     <>
       <Button fontWeight={400} leftIcon={<Search2Icon/>} variant="unstyled" onClick={onOpen}>
@@ -31,7 +49,7 @@ const Search = () => {
       <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
        <DrawerOverlay />
         <DrawerContent >
-        <Container maxW='container.xl'  borderBottom=".5px solid grey">
+        <Container maxW='container.xl' borderBottom=".5px solid grey" >
           <DrawerHeader border="none" borderBottomWidth='1px' fontSize={16} color="#30C9C8">SEARCH KETTO</DrawerHeader>
           <DrawerBody>
             <HStack>
@@ -42,11 +60,25 @@ const Search = () => {
            
           </DrawerBody>
           </Container>
+ 
           <Box margin="auto" >
             <Container margin={5}>
                     {suggestion.length===0&&value&& <p>Sorry, no results found</p>}
+
             </Container>
-        </Box>
+          </Box>
+            
+        <Container  maxW="container.xl" >
+            
+                {suggestion?.map((el,index)=>{
+                    if(index<3){
+                        return <SearchResultCard key={el.id} {...el}/>
+                    }
+                   
+                })}
+           
+        </Container>
+           
           <Box backgroundColor="#F5F5F5" marginTop={10} minH="16">
              <Container maxW="container.xl" marginTop={4}>
                 <Link color="#30C9C8">Click here</Link> to view fundraisers you have supported on Ketto
@@ -60,3 +92,4 @@ const Search = () => {
 }
 
 export default Search
+
