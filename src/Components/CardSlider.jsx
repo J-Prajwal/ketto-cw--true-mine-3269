@@ -218,7 +218,7 @@ export default function CardSlider() {
       setSliderData([
         data[lastSlide - 3],
         data[lastSlide - 2],
-        data[lastSlide-1],
+        data[lastSlide - 1],
       ]);
     }
   };
@@ -261,7 +261,5 @@ export default function CardSlider() {
         </Button>
       </Flex>
     </Box>
-
-    // </Flex>
   );
 }
