@@ -1,6 +1,7 @@
 import React from 'react'
 import Carousel from './Carousel'
 import styles from "../styles/HowWorks.modules.css"
+import { CFunding } from './CFunding'
 
 
 // import Carousel from './Carousal';
@@ -35,7 +36,7 @@ const HowItWorks = () => {
   <p className='para2'>102 People started a fundraiser in last 2 days</p>
 <div><button className='btn1'>GET A CALL</button></div>
   <a href="#" className="whatsaap-btn">
-          <i className="fa fa-twitter fa-fw"></i>CONNECT ON WHATSAPP
+          <i className="fa fa-twitter fa-fw"></i> CONNECT ON WHATSAPP
         </a>
 </form>
 
@@ -53,6 +54,7 @@ const HowItWorks = () => {
  </div>
 
 </div>
+<CFunding/>
 
 
 
