@@ -130,10 +130,10 @@ const loadingState=useSelector((state)=>state.AppReducer.loadingState)
                   })}
             </Grid>}
                 
-                <Stack  bottom={0}padding={50} margin="auto" textAlign="center" >
+                {!offlimit?<Stack  bottom={0}padding={50} margin="auto" textAlign="center" >
                     <Button rightIcon={<ArrowRightIcon/>} _hover={{background:"white"}} background="none" variant="ghost" color="#30C9C8"onClick={handlepagination}>Load more</Button>
-                </Stack>
-               
+                </Stack>:null
+               }
                 {offlimit? <Container><HStack bottom={0}padding={5}  textAlign="center" >
                   <Text>No more fundraiser available</Text>
                     <Button leftIcon={<ArrowLeftIcon/>} _hover={{background:"white"}} background="none" variant="ghost" color="#30C9C8"onClick={handleofflimit}>Go to start ?</Button>
