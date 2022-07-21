@@ -30,7 +30,7 @@ const Carousel  = () => {
                 style={{ cursor: "pointer" , marginLeft:"14px" , marginTop:"20px"} }
                 navSize={60}
                 navMargin={20}
-                border_Redias={"5px"}
+                border_Redias={"10px"}
                 loop={true}
                 autoPlay={true}
                 autoPlayDelay={3.0}

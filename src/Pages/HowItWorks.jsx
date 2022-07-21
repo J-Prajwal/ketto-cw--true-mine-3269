@@ -15,12 +15,13 @@ const HowItWorks = () => {
       <div><img className='bird' src="https://ketto.gumlet.io/assets/images/how-it-works/ketto-logo.svg?w=480&dpr=1.0" ></img></div>
       <h2 className='fon'>We know you are in urgent need of funds.</h2>
       <p className='ourp'>Our personal fundraiser expert is waiting to get you started!</p>
+
       <form action="/action_page.php">
   <div className="input-container">
     <i className="fa fa-user icon">
     
     </i>
-    <input className="input-field" type="text" placeholder="Username" name="usrnm"/>
+    <input className="input-field" type="text" placeholder="Name" name="usrnm"/>
     <img className='usericon' src="https://cdn-icons-png.flaticon.com/128/847/847969.png"/></div>
 
   <div className="input-container">
@@ -37,6 +38,7 @@ const HowItWorks = () => {
           <i className="fa fa-twitter fa-fw"></i>CONNECT ON WHATSAPP
         </a>
 </form>
+
 <div className='sd1'>
   <div className='b1'> <h1 className='teal'>55 Lakh+</h1> 
   <p className='para-g'>DONORS</p></div>
