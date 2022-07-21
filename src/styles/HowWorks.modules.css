@@ -1,0 +1,212 @@
+.sam{
+    /* border: 1px solid red; */
+    width: 683px;
+    font-size: 34px;
+    line-height: 45px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #039695;
+    margin: 25px 0;
+    margin-left: 340px;
+   
+}
+.ourp{
+    margin-bottom: 20px;
+    width: 85%;
+    margin-left: 14px;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    color: #444;
+    font-weight: normal;
+    display: block;
+}
+.bird{
+    margin-left: 180px;
+}
+.cr{
+    /* border: 1px solid red; */
+    margin-left: 125px;
+    margin-top: 60px;
+}
+.fon{
+    /* border: 1px solid red; */
+   width: 90%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px!important;
+    line-height: 30px;
+    color: #444;
+    margin: 0 5%;
+    text-align: center;
+}
+.cf{
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    height: 550px;
+    width: 430px;
+    margin-left: 750px;
+    margin-top: -360px;
+    box-shadow: 0 0 5px 2px rgb(210, 209, 209);
+
+}
+* {box-sizing: border-box;}
+.input-container {
+  display: flex;
+  width: 95%;
+  margin-left: 10px;
+  margin-bottom: 15px;
+}
+.line1{
+    width: 100px;
+    color: black;
+    background-color: black;
+}
+.input-field {
+  width: 95%;
+  margin-left: 10px;
+  padding: 10px;
+  outline: none;
+}
+.btn {
+  background-color: dodgerblue;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+.btn:hover {
+  opacity: 1;
+}
+.Call{
+    height: 50px;
+    border: 1px solid green;
+    width: 150px;
+}
+
+
+.twitter {
+  background-color: #23c526;
+  color: white;
+}
+.usericon{
+    height: 40px;
+
+}
+.line1{
+  width: 100px;
+  background-color: black;
+}
+.btn1{
+border: 1px solid #01bfbd;
+color: #01bfbd;
+text-transform: uppercase;
+width: 278px;
+height: 51px;
+margin-left: 70px;
+box-sizing: border-box;
+border-radius: 4px;
+font-weight: bold;
+font-size: 17px;
+line-height: 21px;
+}
+.para2{
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 20px;
+    text-align: center;
+    color: #039695;
+    margin-bottom: 15px;
+}
+.whatsaap-btn{
+    background: #25D366;
+    color: #fff;
+    width: 278px;
+    height: 51px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 21px;
+    display: flex;
+    margin-left: 70px;
+    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    text-transform: uppercase;
+ 
+}
+
+
+
+.sd1{
+    box-shadow: 0 0 5px 2px rgb(210, 209, 209);
+  border-radius: 10px;
+  height: 100px;
+  width: 580px;
+  margin-left: -600px;
+  margin-top: -70px;
+  box-shadow: 0 0 5px 2px rgb(210, 209, 209);
+}
+.b1{
+  border: 1px solid white;
+  border-radius: 10px;
+  /* border: 1px solid rgb(161, 18, 18); */
+  height: 100px;
+  width: 150px;
+  
+}
+
+.b2{
+  /* border: 1px solid yellow; */
+  /* border: 1px solid white; */
+  height: 100px;
+  width: 150px;
+  margin-left: 220px;
+  margin-top: -80px;
+}
+.b3{
+  /* border: 1px solid  white; */
+  /* border: 1px solid red; */
+  height: 100px;
+  width: 150px;
+  margin-left: 420px;
+  margin-top: -80px;
+}
+.m1{
+  height: 60px;
+background-color: rgb(178, 168, 168);
+  width: 3px;
+  margin-left: 180px;
+  margin-top: -80px;
+}
+.m2{
+  height: 60px;
+background-color:  rgb(178, 168, 168);
+  width: 3px;
+  margin-left: 390px;
+  margin-top: -90px;
+  
+}
+.teal{
+    margin-top: 10px;
+    font-size: 26px;
+    line-height: 33px;
+    color: #039695;
+    font-style: normal;
+    font-weight: bold;
+    margin-left: 30px;
+ 
+}
+.para-g{
+    font-size: 17px;
+    color: #999;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    margin-left: 30px;
+}
