@@ -21,37 +21,9 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 
-const Login = ({ add }) => {
-  const [form, setForm] = useState({});
+const Login = () => {
+
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const initialRef = React.useRef();
-
-  const handeOnChange = (e) => {
-    let { checked, type, name, value, files } = e.target;
-    if (type === "checkbox") {
-      setForm({
-        ...form,
-        [name]: checked,
-      });
-    } else if (type === "file") {
-      setForm({
-        ...form,
-        [name]: files,
-      });
-    } else {
-      setForm({
-        ...form,
-        [name]: value,
-      });
-    }
-  };
-
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
-    add({ ...form, imageSrc: "https://picsum.photos/seed/picsum2/421/261" });
-    onClose();
-  };
-
   const [selectway, setway] = useState(false);
   const [otp, setotp] = useState(false);
   return (
