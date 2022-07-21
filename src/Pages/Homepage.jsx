@@ -6,30 +6,20 @@ import {
   Text,
   Button,
   Grid,
-  Center,
   Image,
   Container,
-  Stack,
-  HStack,
-  Spacer,
-  ButtonGroup,
-  Icon,
-  color,
+  GridItem,
 } from "@chakra-ui/react";
 import React from "react";
 import { GiMartyrMemorial } from "react-icons/gi";
-import {
-  FaBriefcaseMedical,
-  FaFacebook,
-  FaPaw,
-  FaWhatsapp,
-} from "react-icons/fa";
-import { BsDash, BsDashLg } from "react-icons/bs";
+import { FaBriefcaseMedical, FaPaw } from "react-icons/fa";
+import { BsDashLg } from "react-icons/bs";
 import { BiDonateHeart } from "react-icons/bi";
 import { TbSchool, TbMoodKid } from "react-icons/tb";
 import { IoPawOutline } from "react-icons/io5";
 import CardSlider from "../Components/CardSlider";
 import StartFundraiserSteps from "../Components/StartFundraiserSteps";
+import "../Assets/Images/industry.png";
 
 const Homepage = () => {
   return (
@@ -56,7 +46,7 @@ const Homepage = () => {
             alignItems={["baseline", "baseline", "center"]}
           >
             <Box height={["", "50%", "75%"]} mt={["10", "", ""]}>
-              <Heading color="blackAlpha.700" size={["md", "md", "lg"]}>
+              <Heading color="blackAlpha.700" size={["md", "lg", "xl"]}>
                 Need Funds to Pay For a Medical Emergency or Social Cause?
               </Heading>
               <Flex
@@ -67,7 +57,7 @@ const Homepage = () => {
                 <Box>
                   <Heading
                     fontWeight={"bold"}
-                    color={"teal.500"}
+                    color={"#01bfbd"}
                     size={["md", "md", "lg"]}
                   >
                     0%
@@ -83,7 +73,7 @@ const Homepage = () => {
                 <Box>
                   <Heading
                     fontWeight={"bold"}
-                    color={"teal.500"}
+                    color={"#01bfbd"}
                     size={["md", "md", "lg"]}
                   >
                     55 Lakh+
@@ -99,7 +89,7 @@ const Homepage = () => {
                 <Box>
                   <Heading
                     fontWeight={"bold"}
-                    color={"teal.500"}
+                    color={"#01bfbd"}
                     size={["md", "md", "lg"]}
                   >
                     2 Lakh+
@@ -115,7 +105,7 @@ const Homepage = () => {
               </Flex>
               <Box mt={["0", "0", "8"]}>
                 <Text
-                  color={"teal.600"}
+                  color={"#01bfbd"}
                   fontWeight={"medium"}
                   fontSize={["small", "large", "xl"]}
                 >
@@ -130,7 +120,8 @@ const Homepage = () => {
                 </Text>
 
                 <Button
-                  colorScheme={"teal"}
+                  bgColor={"#01bfbd"}
+                  colorScheme={"#01bfbd"}
                   size={["md", "md", "lg"]}
                   p={["1", "3", "7"]}
                   shadow="5px 5px #CAE1E0"
@@ -144,7 +135,7 @@ const Homepage = () => {
               <Button
                 bg={"transparent"}
                 colorScheme={"none"}
-                color={"teal.600"}
+                color={"#01bfbd"}
                 p="0"
                 mt={"2"}
                 ml={["4rem", "0rem", "0rem"]}
@@ -159,16 +150,16 @@ const Homepage = () => {
       {/* Banner ends here */}
 
       {/* Mid section start here */}
-      <Flex justifyContent={"center"} mt={["0", "0", "-10"]}>
+      <Flex justifyContent={"center"} mt={["0", "0", "-7"]}>
         <Box
-          // style={{boxShadow: "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px"}}
-          border={"1px solid gray"}
-          boxShadow={"1px black"}
+          border={"1px solid #d3d4f2"}
+          boxShadow={"2xl"}
           bgColor={"white"}
           display={"flex"}
           justifyContent={"space-around"}
           gap={"10px"}
           width={"50%"}
+          height={"8rem"}
           borderRadius={"15px"}
         >
           <Box display={"flex"} alignItems="center">
@@ -184,22 +175,23 @@ const Homepage = () => {
           </Box>
           <Box display={"flex"} alignItems="center">
             <Box p={2}>
-              <Heading textTransform={"capitalize"} size={"sm"} color="#204b6b">
+              <Heading textTransform={"capitalize"} size={"md"} color="#204b6b">
                 start monthly donation to save lives
               </Heading>
-              <Text fontSize={"xs"}>
+              <Text fontSize={"sm"} mt={"2"} color="#c5c5c5">
                 With your support, countless children will receive health care
-                and a happy life. Start your monthly donation today
+                and a happy life. Start your monthly donation <br /> today
               </Text>
             </Box>
           </Box>
-          <Box width={"50%"}>
-            <Image
-              src="https://kettocdn.gumlet.io/media/banner/0/92/image/81d7a1a7626397c32f6c1fb83bfdf476ccd734af.png?w=720&dpr=1.0"
-              borderRadius={"0px 15px 15px 0px"}
-              objectFit="fill"
-            ></Image>
-          </Box>
+          <Box
+            width={"30%"}
+            bgSize={"12.6rem"}
+            bgPosition={"center"}
+            bgRepeat={"no-repeat"}
+            bgImage="https://kettocdn.gumlet.io/media/banner/0/92/image/81d7a1a7626397c32f6c1fb83bfdf476ccd734af.png?w=720&dpr=1.0"
+            borderRadius={"0px 11px 11px 0px"}
+          ></Box>
         </Box>
       </Flex>
       {/* Mid section ends here */}
@@ -219,7 +211,7 @@ const Homepage = () => {
         </Box>
         <Box width={"23%"}>
           {" "}
-          <Heading size={"sm"} color={"teal.600"}>
+          <Heading size={"sm"} color={"#01bfbd"}>
             View Mores <ArrowForwardIcon />{" "}
           </Heading>{" "}
         </Box>
@@ -394,6 +386,97 @@ const Homepage = () => {
           </Button>
         </Box>{" "}
       </Flex>
+      <Box textAlign={"center"} mt={"3rem"}>
+        <Heading>Why Ketto?</Heading>
+      </Box>
+      <Grid
+        templateColumns={"repeat(4, 1fr)"}
+        border={"1px solid red"}
+        width={"75%"}
+        m={"auto"}
+        gap={"1rem"}
+      >
+        <GridItem>
+          <Box
+            w={"5rem"}
+            h={"5rem"}
+            border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgSize={"contain"}
+          ></Box>
+          <Text>Industry's best fundraising success rate</Text>
+        </GridItem>
+        <GridItem>
+          <Box
+            w={"5rem"}
+            h={"5rem"}
+            border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgSize={"contain"}
+          ></Box>
+          <Text>Industry's best fundraising success rate</Text>
+        </GridItem>
+        <GridItem>
+          <Box
+            w={"5rem"}
+            h={"5rem"}
+            border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgSize={"contain"}
+          ></Box>
+          <Text>Industry's best fundraising success rate</Text>
+        </GridItem>
+        <GridItem>
+          <Box
+            w={"5rem"}
+            h={"5rem"}
+            border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgSize={"contain"}
+          ></Box>
+          <Text>Industry's best fundraising success rate</Text>
+        </GridItem>
+        <GridItem>
+          <Box
+            w={"5rem"}
+            h={"5rem"}
+            border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgSize={"contain"}
+          ></Box>
+          <Text>Industry's best fundraising success rate</Text>
+        </GridItem>
+        <GridItem>
+          <Box
+            w={"5rem"}
+            h={"5rem"}
+            border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgSize={"contain"}
+          ></Box>
+          <Text>Industry's best fundraising success rate</Text>
+        </GridItem>
+        <GridItem>
+          <Box
+            w={"5rem"}
+            h={"5rem"}
+            border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgSize={"contain"}
+          ></Box>
+          <Text>Industry's best fundraising success rate</Text>
+        </GridItem>
+        <GridItem>
+          <Box
+            w={"5rem"}
+            h={"5rem"}
+            border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgSize={"contain"}
+          ></Box>
+          <Text>Industry's best fundraising success rate</Text>
+        </GridItem>
+      </Grid>
     </div>
   );
 };
