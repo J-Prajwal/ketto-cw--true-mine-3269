@@ -9,30 +9,30 @@ import {
   Button,
   useDisclosure,
   FormControl,
-  FormLabel,
   Input,
-  Select,
-  RadioGroup,
-  Radio,
-  Stack,
-  InputGroup,
-  InputLeftElement,
   Flex,
 } from "@chakra-ui/react";
 import { useState } from "react";
 
 const Login = () => {
-
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectway, setway] = useState(false);
   const [otp, setotp] = useState(false);
-  return (
+  const [signup,setsignup] = useState(false)
+ 
+ 
+ 
+return (
     <>
       <Button
         tabIndex={-1}
         my={4}
         data-cy="add-product-button"
         onClick={onOpen}
+        height={8} 
+        fontWeight={400} 
+        variant="ghost"  
+        _hover={{background:"none"}}
       >
         Sign in
       </Button>
@@ -43,15 +43,11 @@ const Login = () => {
           style={{
             position: "fixed",
             width: "43434px",
-
-            // marginTop: "147px",
-            // marginLeft: "207px",
             margin: "10% 49% 0% 27%",
           }}
         >
           <div
             style={{
-              // border: "1px solid blue",
               borderRadius: "1%",
               backgroundColor: "white",
               width: "53%",
@@ -63,23 +59,23 @@ const Login = () => {
               style={{
                 textAlign: "center",
                 paddingLeft: "30px",
-                // border: "1px solid blue",
                 fontSize: "x-large",
               }}
             >
-              Login
+              {signup===false ? "Login" : "Signup"}
             </ModalHeader>
-            <ModalCloseButton style={{ fontSize: "large" }}></ModalCloseButton>
+            <ModalCloseButton onClick={() => setsignup(false)} style={{ fontSize: "large" }}></ModalCloseButton>
             <ModalBody pb={6}>
               <FormControl style={{ marginTop: "4%" }}>
                 <Flex>
-                  <div style={{ textAlign: "center",width:"47%" }}>
+                  <div style={{ textAlign: "center",width:"47%" ,marginLeft:"2%"}}>
+                    {signup === false ? <div>
                     {selectway === false ? (
                       <>
                         <Input
                           style={{ width: "100%", marginBottom: "5%" }}
                           data-cy="add-product-title"
-                          placeholder="Email/Mobile number"
+                          placeholder="Mobile number"
                           name="title"
                           maxLength={1}
                           type={"number"}
@@ -112,7 +108,7 @@ const Login = () => {
                         <Input
                           style={{ width: "100%", marginBottom: "5%" }}
                           data-cy="add-product-title"
-                          placeholder="Email Address"
+                          placeholder="Email/Mobile number"
                           type={"email"}
                           name="title"
                         />
@@ -137,13 +133,50 @@ const Login = () => {
                         </Button>
                       </>
                     )}
+                    </div> :  <>
+                        <Input
+                          style={{ width: "100%", marginBottom: "5%" }}
+                          data-cy="add-product-title"
+                          placeholder="username"
+                          type={"text"}
+                          name="title"
+                        />
+                        <Input
+                          style={{ width: "100%", marginBottom: "5%" }}
+                          data-cy="add-product-title"
+                          placeholder="Email"
+                          maxLength={8}
+                          type={"email"}
+                          name="title"
+                        />
+                         <Input
+                          style={{ width: "100%", marginBottom: "5%" }}
+                          data-cy="add-product-title"
+                          placeholder="Password"
+                          maxLength={8}
+                          type={"password"}
+                          name="title"
+                        />
+                        <Button
+                          style={{
+                            width: "100%",
+                            color: "white",
+                            backgroundColor: "#01bfbd",
+                          }}
+                          onClick={() => setotp(!otp)}
+                          data-cy="add-product-submit-button"
+                        >
+                          Sign up
+                        </Button>
+                      </>}
+                    
+
 
                     <div style={{ textAlign: "center" }}>
-                      <p
+                     {signup === false ? <> <p
                         onClick={() => setway(!selectway)}
                         style={{
                           cursor: "pointer",
-                          // margin: "5% 1% 3% 0%",
                           fontSize: "small",
                           marginTop: "8%",
                           color: "#01bfbd",
@@ -152,15 +185,11 @@ const Login = () => {
                         {selectway === false
                           ? "Login via Password"
                           : "Login via OTP"}
-                      </p>
-
+                      </p></> : null}
                       <p
                         style={{
                           fontSize: "12px",
-                          // marginRight: "19%",
                           marginTop: "8%",
-                          // wodth:"100%",
-                          // border:"1px solid red",
                           fontFamily: "sans-serif",
                           color: "gray",
                         }}
@@ -174,21 +203,32 @@ const Login = () => {
                           Privacy <br></br>Policy
                         </span>
                       </p>
-                      <p
+                      {signup === false ? <>  <p
                         style={{
                           margin: "29px 0px 0px 0px",
-                          // marginTop:"17px",
                           color: "dimgray",
-                          // fontSize: "large",
                           fontFamily: "sans-serif",
                         }}
                       >
                         Not have a account?{" "}
-                        <span style={{ color: "#01bfbd", cursor: "pointer" }}>
+                        <span onClick={() => setsignup(!signup)} style={{ color: "#01bfbd", cursor: "pointer" }}>
                           Signup{" "} 
                         </span>
                         from here
-                      </p>
+                      </p></> : <><p
+                        style={{
+                          margin: "29px 0px 0px 0px",
+                          color: "dimgray",
+                          fontFamily: "sans-serif",
+                        }}
+                      >
+                        Have an account?{" "}
+                        <span onClick={() => setsignup(!signup)} style={{ color: "#01bfbd", cursor: "pointer" }}>
+                          Login{" "} 
+                        </span>
+                        from here
+                      </p></>}
+                    
                     </div>
                   </div>
 
@@ -210,7 +250,6 @@ const Login = () => {
                         justifyContent: "space-between",
                         fontSize: "large",
                         borderRadius: "2%",
-                        // marginRight: "19%",
                         marginLeft: "10%",
                         backgroundColor: "#4285f4",
                         height: "40px",
@@ -222,7 +261,6 @@ const Login = () => {
                         justifyContent: "space-between",
                         fontSize: "large",
                         borderRadius: "2%",
-                        // marginRight: "19%",
                         marginLeft: "10%",
                         backgroundColor: "#4285f4",
                         height: "40px",
@@ -233,20 +271,22 @@ const Login = () => {
                         style={{
                           cursor: "pointer",
                           width: "13%",
-                          // height: "100%",
+                          height: "78%",
                           margin: "2%",
+                          
                         }}
                         src="https://cdn-icons.flaticon.com/png/512/2504/premium/2504914.png?token=exp=1658299748~hmac=80727ac986a21a8da705c74f5c58ee1a"
                         alt="img"
                       />
+                     
                       <span
                         style={{
                           cursor: "pointer",
-                          margin: "5px 7% 0px 0%",
+                          margin: "5px 14% 0px 0%",
                           color: "white",
                         }}
                       >
-                        Sign in with Google
+                         {signup === false ? "Sign in" : "Sign up"} with Google
                       </span>
                     </button>
                   </div>

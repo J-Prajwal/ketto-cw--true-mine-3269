@@ -13,6 +13,7 @@ import { Container,HStack,Image,Select,option,Text,Button, Menu,
 import Search from './Search'
  
 import { useDispatch } from 'react-redux'
+import Login from './Signin&signup'
  
 const Header = () => {
  const navigate=useNavigate()
@@ -40,7 +41,7 @@ const Header = () => {
             <HStack spacing="5">
             <Button height={8} color="green" border="2px solid green" fontWeight={500}  background="none" _hover={{background:"none"}} leftIcon={<LinkIcon/>} >Chat</Button>
               <Button height={8} color="#30C9C8" border="2px solid #30C9C8}" fontWeight={500}  background="none" _hover={{background:"#EAF9F9"}}>Start a Fundraiser</Button>
-              <Button height={8}  fontWeight={400} variant="ghost"  _hover={{background:"none"}} >Sign In</Button>
+              <Button height={8}  fontWeight={400} variant="ghost"  _hover={{background:"none"}} ><Login/></Button>
             </HStack>
         </HStack>
     </Container>
