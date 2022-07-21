@@ -1,16 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import HowWorks from './Components/HowWorks';
-import Carousel from './Components/Carousal';
-import Faq from './Components/Faq';
+
+import Header from "./Components/Header";
+import MainRoutes from "./Pages/MainRoutes";
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-     <HowWorks/>
-     {/* <Faq/> */}
-   
-     
+    <div>
+      <Header />
+      <MainRoutes />
     </div>
   );
 }

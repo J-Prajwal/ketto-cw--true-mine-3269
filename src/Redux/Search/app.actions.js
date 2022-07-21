@@ -1,13 +1,13 @@
 // https://qr1zme.sse.codesandbox.io/funds
 
-import axios from "axios";
-import * as types from "./app.actionTypes";
+import axios from "axios"
+import * as types from "./app.actionTypes"
 
-export const getdatarequest = () => {
-  return {
-    type: types.GET_DATA_REQUEST,
-  };
-};
+export const getdatarequest=()=>{
+    return{
+            type:types.GET_DATA_REQUEST
+    }
+}
 
 export const getdatafailure=()=>{
     return{
@@ -20,17 +20,11 @@ export const getdatasuccess=(payload)=>{
         payload
     }
 }
-export const changeloadin=(payload)=>{
-    return{
-        type:types.CHANGE_LOADING,
-        payload
-    }
-}
-export const getdata=(filter,location,limit)=>(dispatch)=>{
-    
-    if(filter&&filter!="all"){
+export const getdata=(filter)=>(dispatch)=>{
+     
+    if(filter&&filter!=="all"){
         dispatch(getdatarequest())
-    return axios.get(`https://qr1zme.sse.codesandbox.io/funds?category=${filter}&_limit=${limit}`).then((res)=>{
+    return axios.get(`https://qr1zme.sse.codesandbox.io/funds?category=${filter}`).then((res)=>{
          
         dispatch(getdatasuccess(res.data))
     }).catch((err)=>{
@@ -38,10 +32,9 @@ export const getdata=(filter,location,limit)=>(dispatch)=>{
         dispatch(getdatafailure())
     })
     }
-    
     else{
         dispatch(getdatarequest())
-        return axios.get(`https://qr1zme.sse.codesandbox.io/funds?_limit=${limit}`).then((res)=>{
+        return axios.get(`https://qr1zme.sse.codesandbox.io/funds`).then((res)=>{
             
             dispatch(getdatasuccess(res.data))
         }).catch((err)=>{
