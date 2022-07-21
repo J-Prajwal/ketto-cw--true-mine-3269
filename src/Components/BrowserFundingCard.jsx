@@ -23,18 +23,24 @@ export const BrowserFundingCard = ({mainImg,title,goal,daysLeft,supporters,raise
         <Text padding={5} noOfLines={1} overflow="hidden" fontWeight={700}>{title}</Text>
         <HStack spacing={10} padding={5}>
             <Image marginLeft={2} width={35} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScXyoZXpAWph9Vnu9_ZpWgNmn20W4hlBOn-5dLmFQuww8zSfnhRRNQW7B0RRuApO_PFwg&usqp=CAU"/> <Text>{raisedBy}</Text>
+
         </HStack>
-        <Text fontSize={18} paddingLeft={5}><b > {goal}</b> raised</Text>
+        <Text fontSize={18} paddingLeft={5}>
+          <b> {goal}</b> raised
+        </Text>
         <Box margin="auto" textAlign="center">
-             <Slider  width="80%" defaultValue={tempraised} min={tempraised} max={tempgoal} >
-                <SliderTrack bg='#30C9C8.100'>
-                <Box position='relative' right={10} />
-                <SliderFilledTrack bg='#30C9C8' />
+          <Slider
+            width="80%"
+            defaultValue={tempraised}
+            min={tempraised}
+            max={tempgoal}
+          >
+            <SliderTrack bg="#30C9C8.100">
+              <Box position="relative" right={10} />
+              <SliderFilledTrack bg="#30C9C8" />
             </SliderTrack>
-            
-      </Slider>
+          </Slider>
         </Box>
-       
 
         <Text padding={5}>Last Donation an hour ago</Text>
                 <HStack spacing={10} padding={5}>
@@ -43,6 +49,17 @@ export const BrowserFundingCard = ({mainImg,title,goal,daysLeft,supporters,raise
                 </HStack>
         
         </Box>
+        <HStack spacing={10} padding={5}>
+          <Text>
+            {" "}
+            <b> {daysLeft}</b>days left
+          </Text>
+          <Text>
+            {" "}
+            <b>{supporters} </b> suppports
+          </Text>
+        </HStack>
+      </Box>
     </Box>
-  )
-}
+  );
+};

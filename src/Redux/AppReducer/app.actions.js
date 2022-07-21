@@ -1,13 +1,13 @@
 // https://qr1zme.sse.codesandbox.io/funds
 
-import axios from "axios"
-import * as types from "./app.actionTypes"
+import axios from "axios";
+import * as types from "./app.actionTypes";
 
-export const getdatarequest=()=>{
-    return{
-            type:types.GET_DATA_REQUEST
-    }
-}
+export const getdatarequest = () => {
+  return {
+    type: types.GET_DATA_REQUEST,
+  };
+};
 
 export const getdatafailure=()=>{
     return{
