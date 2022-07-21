@@ -43,23 +43,14 @@ export const BrowserFundingCard = ({mainImg,title,goal,daysLeft,supporters,raise
         </Box>
 
         <Text padding={5}>Last Donation an hour ago</Text>
-                <HStack spacing={10} padding={5}>
-                    <Text> <b>{daysLeft}</b> days left</Text>
-                    <Text> <b>{supporters} </b> suppports</Text>
-                </HStack>
+              <HStack spacing={10} padding={5}>
+                  <Text> <b>{daysLeft}</b> days left</Text>
+                  <Text> <b>{supporters} </b> supports</Text>
+              </HStack>
         
         </Box>
-        <HStack spacing={10} padding={5}>
-          <Text>
-            {" "}
-            <b> {daysLeft}</b>days left
-          </Text>
-          <Text>
-            {" "}
-            <b>{supporters} </b> suppports
-          </Text>
-        </HStack>
-      </Box>
+         
+    
     </Box>
   );
 };

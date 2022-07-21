@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import {Box,Heading,Text,Button,Input,HStack,Container,Select,Grid,GridItem,Spinner, InputLeftElement,Image, InputGroup, InputRightElement, Textarea, Stack} from "@chakra-ui/react"
- 
+ import {AiFillFacebook} from "react-icons/ai"
+ import {ImWhatsapp} from "react-icons/im"
 import { Filter } from '../Components/FilterCategory'
 import { useSelector,useDispatch } from 'react-redux'
-import{SearchIcon,ChatIcon,ChevronDownIcon,QuestionIcon,ArrowRightIcon} from"@chakra-ui/icons"
+import{SearchIcon,ChatIcon,ChevronDownIcon,QuestionIcon,ArrowRightIcon, ArrowLeftIcon} from"@chakra-ui/icons"
 import { changeloadin, getdata } from '../Redux/AppReducer/app.actions'
 import { BrowserFundingCard } from '../Components/BrowserFundingCard'
 const BrowseFundraiser = () => {
@@ -15,7 +16,7 @@ const BrowseFundraiser = () => {
   const [searchinpage,setsearchinpage]=useState("")
   const [seacheddata,setsearcheddata]=useState(null)
 
-
+  const[offlimit,setofflimit]=useState(false)
   const [limit,setlimit]=useState(5)
   const [location,setlocation] =useState("")
   const dispatch=useDispatch()
@@ -25,6 +26,21 @@ const BrowseFundraiser = () => {
 const loadingState=useSelector((state)=>state.AppReducer.loadingState)
 
 
+ const handlepagination=()=>{
+  if(limit>=19){
+    setofflimit(true)
+    setlimit(19)
+  }
+  
+  else{
+    setofflimit(false)
+    setlimit(limit+2)
+  }
+ }
+ const handleofflimit=()=>{
+  setlimit(5)
+  setofflimit(false)
+ }
   useEffect(()=>{
     dispatch(getdata(filter,location,limit))
     // setloadingstate(true)
@@ -113,17 +129,32 @@ const loadingState=useSelector((state)=>state.AppReducer.loadingState)
                     return <GridItem  key={el.id}><BrowserFundingCard {...el}/></GridItem>
                   })}
             </Grid>}
-           
-            
+                
+                <Stack  bottom={0}padding={50} margin="auto" textAlign="center" >
+                    <Button rightIcon={<ArrowRightIcon/>} _hover={{background:"white"}} background="none" variant="ghost" color="#30C9C8"onClick={handlepagination}>Load more</Button>
+                </Stack>
+               
+                {offlimit? <Container><HStack bottom={0}padding={5}  textAlign="center" >
+                  <Text>No more fundraiser available</Text>
+                    <Button leftIcon={<ArrowLeftIcon/>} _hover={{background:"white"}} background="none" variant="ghost" color="#30C9C8"onClick={handleofflimit}>Go to start ?</Button>
+                   </HStack>
+                </Container>:null}
+            <HStack spacing="auto" margin={5}>
+             
+             <Text>Have a question? Check out our FAQs page or chat with us on Facebook or WhatsApp.</Text>
+                 
+             <HStack>
+                <Button leftIcon={<AiFillFacebook color='white'/>}  colorScheme="blue">Chat with us</Button>
+                <Button leftIcon={<ImWhatsapp/>} colorScheme="green">Chat with us</Button>
+             </HStack>
+            </HStack>
           
           </Box>
 
 
                   {/* // pagination starts here */}
 
-                  <Stack position="absolute" bottom={0}padding={50} margin="auto" textAlign="center" >
-                    <Button colorScheme="red" onClick={()=>{setlimit(limit+3)}}>Load more</Button>
-                  </Stack>
+                
 
         {/* </HStack> */}
                   <Button onClick={()=>{setchatbox(true)}} _hover={{backgroundColor:"teal"}} borderRadius={20} backgroundColor="#30C9C8" color="white"  padding={5} leftIcon={<ChatIcon/>} position="fixed" margin={20} right={0} bottom={0}>Support</Button>
