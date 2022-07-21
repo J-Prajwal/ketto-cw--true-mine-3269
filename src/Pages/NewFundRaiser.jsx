@@ -12,59 +12,61 @@ import {
   MenuItem,
   Flex,
   Select,
+  Container,
 } from "@chakra-ui/react";
 import { ChevronDownIcon, PhoneIcon, ViewOffIcon } from "@chakra-ui/icons";
 
 import { BiEnvelope } from "react-icons/bi";
+import { BsFillPersonFill } from "react-icons/bs";
 import React, { useState } from "react";
 
 const NewFundRaiser = () => {
   const [menu, setMenu] = useState("English");
+
+  const handleSubmit = () => {
+    console.log();
+  };
   return (
     <Box bg="#3d3d3d" w={"100%"} h={"741px"}>
       <br />
-      {/* <Select onChange={(e) => setMenu(e.target.value)}>
-        <option value="English">English</option>
-        <option value="Hindi">Hindi</option>
-        <option value="English">English</option>
-        <option value="English">English</option>
-      </Select> */}
-      <Menu bg="white" marginLeft="530px">
-        <MenuButton
-          outline={"none"}
-          border={""}
-          bg={"white"}
-          as={Button}
-          rightIcon={<ChevronDownIcon />}
-          // rightIcon={<BiEnvelope />}
-        >
-          {menu}
-        </MenuButton>
-        <MenuList
-          onChange={(e) => {
-            setMenu(e.target.value);
-          }}
-          mt={"-10"}
-          borderRadius={"15px"}
-          width={"200px"}
-        >
-          <MenuItem value={"English"} borderRadius={"15px 15px 0px 0px"}>
-            English
-          </MenuItem>
-          <MenuItem
-            onClick={(e) => {
+      <Container ml="518px">
+        <Menu bg="white">
+          <MenuButton
+            outline={"none"}
+            border={""}
+            bg={"white"}
+            as={Button}
+            rightIcon={<ChevronDownIcon />}
+            // rightIcon={<BiEnvelope />}
+          >
+            {menu}
+          </MenuButton>
+          <MenuList
+            onChange={(e) => {
               setMenu(e.target.value);
             }}
-            value={"Hindi"}
+            mt={"-10"}
+            borderRadius={"15px"}
+            width={"200px"}
           >
-            Hindi
-          </MenuItem>
-          <MenuItem value={"Tamil"}>Tamil</MenuItem>
-          <MenuItem value={"Bengali"} borderRadius={"0px 0px 15px 15px"}>
-            Bengali
-          </MenuItem>
-        </MenuList>
-      </Menu>
+            <MenuItem value={"English"} borderRadius={"15px 15px 0px 0px"}>
+              English
+            </MenuItem>
+            <MenuItem
+              onClick={(e) => {
+                setMenu(e.target.value);
+              }}
+              value={"Hindi"}
+            >
+              Hindi
+            </MenuItem>
+            <MenuItem value={"Tamil"}>Tamil</MenuItem>
+            <MenuItem value={"Bengali"} borderRadius={"0px 0px 15px 15px"}>
+              Bengali
+            </MenuItem>
+          </MenuList>
+        </Menu>
+      </Container>
       <br />
       <Box
         w="500px"
@@ -120,24 +122,24 @@ const NewFundRaiser = () => {
         </Box>
         <br />
         <Stack spacing={3} alignItems="center">
-          <Flex w="100%">
+          <Flex w="90%">
             <Input variant="flushed" placeholder="Name" />
-            <BiEnvelope />
+            <BsFillPersonFill />
           </Flex>
 
           <br />
-          <Flex w="100%">
+          <Flex w="90%">
             <Input variant="flushed" placeholder="Emil Address" />
             <BiEnvelope />
           </Flex>
           <br />
-          <Flex w="100%">
+          <Flex w="90%">
             <Input variant="flushed" placeholder="Create a Password" />
             <ViewOffIcon />
           </Flex>
 
           <br />
-          <Flex w="100%">
+          <Flex w="90%">
             <Input variant="flushed" placeholder="Mobile" />
             <PhoneIcon />
           </Flex>
@@ -174,6 +176,9 @@ const NewFundRaiser = () => {
         h="55px"
         w="499px"
         fontFamily={"sans-serif"}
+        textAlign={"center"}
+        lineHeight={"55px"}
+        onClick={() => handleSubmit()}
       >
         Next{" "}
       </Box>
