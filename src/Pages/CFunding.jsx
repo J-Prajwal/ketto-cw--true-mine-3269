@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styles from "./Crowd.module.css";
 import { CVideo } from './CVideo';
 import data1 from "./sam.json"
-
+import { Container,Text,Heading,HStack } from '@chakra-ui/react';
 
 
 
@@ -10,37 +10,20 @@ export const CFunding = () => {
   
     const [details] = useState(data1);
     return (
-        <>
+        <Container maxW="container.2xl" marginTop={50}>
            
-            <div>
-                <div className={styles.headingtext}>
+           <Heading padding={5} textAlign="center">What is Crowdfunding?</Heading>
+           <Text textAlign="center">In its simplest form, Crowdfunding is a practice of giving monetary funds to<br/> overcome specific social, cultural, or economic hurdles individuals face in their <br/> daily lives.</Text>
+            <HStack margin="auto"width="70%">
 
-                    <h1>What is Crowdfunding?</h1>
-                    <p>
-                        In its simplest form, Crowdfunding
-                        is a practice of giving monetary funds
-                        to overcome specific social, cultural,
-                        or economic hurdles individuals face in
-                        their daily lives.
-                    </p>
-                </div>
-
-                <div>
                     {details.map((item1) => {
                         return <CVideo data={item1} />
                     })}
 
-                </div>
+             </HStack>
 
-                </div>
-
-          
-            <div className={styles.main}>
-
-            </div>
-       
-
-        </>
+        
+        </Container>
     )
 }
 
