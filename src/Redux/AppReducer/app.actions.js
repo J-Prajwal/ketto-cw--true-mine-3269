@@ -20,11 +20,17 @@ export const getdatasuccess=(payload)=>{
         payload
     }
 }
-export const getdata=(filter)=>(dispatch)=>{
-     
+export const changeloadin=(payload)=>{
+    return{
+        type:types.CHANGE_LOADING,
+        payload
+    }
+}
+export const getdata=(filter,location,limit)=>(dispatch)=>{
+    
     if(filter&&filter!="all"){
         dispatch(getdatarequest())
-    return axios.get(`https://qr1zme.sse.codesandbox.io/funds?category=${filter}`).then((res)=>{
+    return axios.get(`https://qr1zme.sse.codesandbox.io/funds?category=${filter}&_limit=${limit}`).then((res)=>{
          
         dispatch(getdatasuccess(res.data))
     }).catch((err)=>{
@@ -32,9 +38,10 @@ export const getdata=(filter)=>(dispatch)=>{
         dispatch(getdatafailure())
     })
     }
+    
     else{
         dispatch(getdatarequest())
-        return axios.get(`https://qr1zme.sse.codesandbox.io/funds`).then((res)=>{
+        return axios.get(`https://qr1zme.sse.codesandbox.io/funds?_limit=${limit}`).then((res)=>{
             
             dispatch(getdatasuccess(res.data))
         }).catch((err)=>{

@@ -8,26 +8,26 @@ import {
     DrawerContent,VStack,Divider,
     DrawerCloseButton,Button,Input,Container,HStack,Icon,Box,Link
   } from '@chakra-ui/react'
-  import {Search2Icon,DeleteIcon} from "@chakra-ui/icons"
+import {Search2Icon,DeleteIcon} from "@chakra-ui/icons"
 import { useDisclosure } from '@chakra-ui/react'
 import { useState } from 'react'
 import { useSelector,useDispatch } from 'react-redux'
 // import { getdata} from "../Redux/AppReducer/app.actions"
 import { getdata } from '../Redux/Search/app.actions'
 import { SearchResultCard } from './SearchResultCard'
+import { changeloadin } from '../Redux/AppReducer/app.actions'
 const Search = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const dispatch=useDispatch()
     
     const [value,setvalue]=useState("")
     const [suggestion,setSuggestion]=useState([])
-    // const data=useSelector((state)=>state.AppReducer.funds)
-
    const data=useSelector((state)=>state.searchReducer.funds)
+  //  const loadingState=useSelector((state)=>state.AppReducer.loadingState)
     useEffect(()=>{
        
             dispatch(getdata())
-            
+            dispatch(changeloadin(false))
         if(!value){
             setSuggestion([])
         }else{
