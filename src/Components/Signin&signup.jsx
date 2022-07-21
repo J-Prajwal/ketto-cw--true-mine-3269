@@ -183,10 +183,11 @@ const Login = () => {
                           fontFamily: "sans-serif",
                         }}
                       >
-                        Want to start a fundraiser?{" "}
+                        Not have a account?{" "}
                         <span style={{ color: "#01bfbd", cursor: "pointer" }}>
-                          Click here
+                          Signup{" "} 
                         </span>
+                        from here
                       </p>
                     </div>
                   </div>
