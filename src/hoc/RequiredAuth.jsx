@@ -1,8 +1,8 @@
 import React from 'react'
 
-const RequiredAuth = () => {
+const RequiredAuth = ({children}) => {
   return (
-    <div>RequiredAuth</div>
+    children
   )
 }
 
