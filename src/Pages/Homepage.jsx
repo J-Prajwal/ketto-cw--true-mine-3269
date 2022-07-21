@@ -13,10 +13,23 @@ import {
   HStack,
   Spacer,
   ButtonGroup,
+  Icon,
+  color,
 } from "@chakra-ui/react";
 import React from "react";
-import { FaFacebook, FaWhatsapp } from "react-icons/fa";
+import { GiMartyrMemorial } from "react-icons/gi";
+import {
+  FaBriefcaseMedical,
+  FaFacebook,
+  FaPaw,
+  FaWhatsapp,
+} from "react-icons/fa";
+import { BsDash, BsDashLg } from "react-icons/bs";
+import { BiDonateHeart } from "react-icons/bi";
+import { TbSchool, TbMoodKid } from "react-icons/tb";
+import { IoPawOutline } from "react-icons/io5";
 import CardSlider from "../Components/CardSlider";
+import StartFundraiserSteps from "../Components/StartFundraiserSteps";
 
 const Homepage = () => {
   return (
@@ -212,123 +225,174 @@ const Homepage = () => {
         </Box>
       </Flex>
       {/* slider component */}
-      {/* Mid section ends here */}
-      <Container maxWidth={"100%"} mt={"10"}>
-        <Heading textAlign={"center"}>
-          Start a Fundraiser in three simple steps
-        </Heading>
-      </Container>
-      <Flex gap="6" width={"70%"} margin={"auto"} mt={"10"}>
-        <Box w={"15%"} mt={"10"}>
+
+      <StartFundraiserSteps />
+
+      <Box
+        rounder={"xl"}
+        boxShadow="2xl"
+        bg="white"
+        m={"auto"}
+        w={"65%"}
+        mt={"10"}
+        display={"grid"}
+        gridTemplateColumns={"repeat(2, 1fr)"}
+      >
+        <Box width={"75%"} margin={"auto"}>
           <Image
-            // border={"1px solid red"}
-            width={"100%"}
-            src="https://ketto.gumlet.io/assets/images/homepage/sac-separator.png?w=100&dpr=1.0"
+            w={"100%"}
+            h={"100%"}
+            src="https://ketto.gumlet.io/assets/images/homepage/mcd-app-homepage.png?w=480&dpr=1.0"
           ></Image>
         </Box>
-        <Box
-          w={"100%"}
-          h={"700px"}
-          mt={"10"}
-          display="flex"
-          flexDirection={"column"}
-          // justifyContent={"space-between"}
-        >
-          <Box>
-            <Heading fontWeight={"medium"} size={"md"} color={"teal.500"}>
-              Start your fundraiser
-            </Heading>
-            <br />
-            <Text fontSize={"md"}>
-              It’ll take only 2 minutes. Just tell us a few details about you
-              and the ones you are raising funds for.
-            </Text>
+        <Box height={"100%"}>
+          <Box height={"30%"} display={"flex"} alignItems={"center"}>
+            <Heading size={"lg"}>Manage your fundraisers on the go</Heading>
           </Box>
-          <Box mt={"20"}>
-            <Heading fontWeight={"medium"} size={"md"} color={"teal.500"}>
-              Share your fundraiser
-            </Heading>
-            <br />
-            <Text fontSize={"md"}>
-              All you need to do is share the fundraiser with your friends and
-              family. In no time, support will start pouring in.
-            </Text>
-            <Text fontSize={"xs"} color="gray">
-              Share your fundraiser directly from dashboard on social media.
-            </Text>
+          <Grid templateColumns={"repeat(2, 1fr)"} gap={"10"}>
+            <Box display={"flex"} flexDirection={"column"}>
+              <Image
+                width={"35%"}
+                src="https://ketto.gumlet.io/assets/images/download/phone.png?w=200&dpr=1.0"
+              ></Image>
+              <Text fontSize={"1.2rem"}>Access a personlized dashboard</Text>
+            </Box>
+            <Box display={"flex"} flexDirection={"column"}>
+              <Image
+                width={"35%"}
+                src="https://ketto.gumlet.io/assets/images/download/withdraw.png?w=200&dpr=1.0"
+              ></Image>
+              <Text fontSize={"1.2rem"}>Withdraw your funds faster</Text>
+            </Box>
+            <Box display={"flex"} flexDirection={"column"}>
+              <Image
+                width={"35%"}
+                src="https://ketto.gumlet.io/assets/images/download/piggy-bank.png?w=200&dpr=1.0"
+              ></Image>
+              <Text fontSize={"1.2rem"}>
+                Keep track of all your donations recieved
+              </Text>
+            </Box>
+            <Box display={"flex"} flexDirection={"column"}>
+              <Image
+                width={"35%"}
+                src="https://ketto.gumlet.io/assets/images/download/support.png?w=200&dpr=1.0"
+              ></Image>
+              <Text fontSize={"1.2rem"}>Start fundraisers within seconds</Text>
+            </Box>
+          </Grid>
+          <Box display={"flex"} alignItems={"end"} height={"20%"}>
+            <Box display={"flex"} gap={"2"} mb={"3"}>
+              <Image
+                width={"30%"}
+                src="https://ketto.gumlet.io/assets/images/sip/icons/black-google-store.png?w=480&dpr=1.0"
+              ></Image>
+              <Image
+                width={"30%"}
+                src="https://ketto.gumlet.io/assets/images/sip/App-Store-black.png?w=480&dpr=1.0"
+              ></Image>
+            </Box>
           </Box>
-          <Box mt={"20"}>
-            <Heading fontWeight={"medium"} size={"md"} color={"teal.500"}>
-              Withdraw Funds
-            </Heading>
-            <br />
-            <Text fontSize={"md"}>
-              The funds raised can be withdrawn without any hassle directly to
-              your bank account.
-            </Text>
-            <Text fontSize={"xs"} color={"gray"}>
-              It takes only 5 minutes to withdraw funds on ketto.
-            </Text>
-          </Box>
         </Box>
-        <Spacer></Spacer>
-        <Spacer></Spacer>
-        <Spacer></Spacer>
-        <Box w={"80%"} bg={"transparent"}>
-          <video loop muted autoPlay controls="">
-            <source
-              src="https://www.ketto.org/assets/videos/screen_recording.webm"
-              type="video/webm"
-            ></source>
-            <source
-              src="https://www.ketto.org/assets/videos/screen_recording.mp4"
-              type="video/mp4"
-            ></source>
-          </video>
-        </Box>
-      </Flex>
-      <Center>
-        <Stack direction={"row"}>
-          <ButtonGroup gap={"4"}>
-            <Button
-              fontWeight={"bold"}
-              height={"50px"}
-              width={"300px"}
-              colorScheme={"teal"}
-              variant={"solid"}
-            >
-              START A FUNDRAISER FOR FREE
-            </Button>
-            <Button
-              fontWeight={"bold"}
-              height={"50px"}
-              width={"300px"}
-              border={"2px"}
-              colorScheme={"teal"}
-              variant={"outline"}
-            >
-              TALK TO US
-            </Button>
-          </ButtonGroup>
-        </Stack>
-      </Center>
-      <Flex justifyContent={"space-around"} width={"93%"} m={"auto"} mt={"10"}>
-        <Box display={"flex"} alignItems={"center"}>
-          <Text>
-            Have any questions for us? Chat with our team on Facebook or
-            WhatsApp now.
-          </Text>
-        </Box>
-        <Box>
-          <ButtonGroup gap={"6"} size={"lg"}>
-            <Button borderRadius={"30px"} colorScheme={"facebook"} leftIcon={<FaFacebook />}>
-              CHAT WITH US
-            </Button>
-            <Button borderRadius={"30px"} colorScheme={"whatsapp"} leftIcon={<FaWhatsapp />}>
-              CHAT WITH US
-            </Button>
-          </ButtonGroup>
-        </Box>
+      </Box>
+      <Box width={"60%"} margin="auto" textAlign={"center"} mt="20">
+        <Heading size={"lg"}>Causes you can raise funds for</Heading>
+        <Text color={"gray.500"} mt={"2"}>
+          Be it for a personal need, social cause or a creative idea-you can
+          count on us for <br /> the project tha you want to raise funds for.
+        </Text>
+      </Box>
+      <Flex justifyContent={"center"} gap={"2"} mt={"10"}>
+        <Box borderRadius={"lg"} width={"11rem"} height={"8.5rem"}>
+          <Button
+            width={"100%"}
+            height={"100%"}
+            bgImage="https://ketto.gumlet.io/assets/images/homepage/causes-bg.png?w=auto&dpr=1.0"
+            display={"flex"}
+            flexDirection={"column"}
+            color={"white"}
+            colorScheme={"none"}
+          >
+            <FaBriefcaseMedical color="white" size={"4rem"} />
+            <Text mt={"2"}>MEDICAL</Text>
+            <BsDashLg />
+          </Button>
+        </Box>{" "}
+        <Box borderRadius={"lg"} width={"11rem"} height={"8.5rem"}>
+          <Button
+            width={"100%"}
+            height={"100%"}
+            bgImage="https://ketto.gumlet.io/assets/images/homepage/causes-bg.png?w=auto&dpr=1.0"
+            display={"flex"}
+            flexDirection={"column"}
+            color={"white"}
+            colorScheme={"none"}
+          >
+            <GiMartyrMemorial color="white" size={"4rem"} />
+            <Text mt={"2"}>MEMORIAL</Text>
+            <BsDashLg />
+          </Button>
+        </Box>{" "}
+        <Box borderRadius={"lg"} width={"11rem"} height={"8.5rem"}>
+          <Button
+            width={"100%"}
+            height={"100%"}
+            bgImage="https://ketto.gumlet.io/assets/images/homepage/causes-bg.png?w=auto&dpr=1.0"
+            display={"flex"}
+            flexDirection={"column"}
+            color={"white"}
+            colorScheme={"none"}
+          >
+            <TbMoodKid color="white" size={"4rem"} />
+            <Text mt={"2"}>CHILDREN</Text>
+            <BsDashLg />
+          </Button>
+        </Box>{" "}
+        <Box borderRadius={"lg"} width={"11rem"} height={"8.5rem"}>
+          <Button
+            width={"100%"}
+            height={"100%"}
+            bgImage="https://ketto.gumlet.io/assets/images/homepage/causes-bg.png?w=auto&dpr=1.0"
+            display={"flex"}
+            flexDirection={"column"}
+            color={"white"}
+            colorScheme={"none"}
+          >
+            <TbSchool color="white" size={"4rem"} />
+            <Text mt={"2"}>EDUCATION</Text>
+            <BsDashLg />
+          </Button>
+        </Box>{" "}
+        <Box borderRadius={"lg"} width={"11rem"} height={"8.5rem"}>
+          <Button
+            width={"100%"}
+            height={"100%"}
+            bgImage="https://ketto.gumlet.io/assets/images/homepage/causes-bg.png?w=auto&dpr=1.0"
+            display={"flex"}
+            flexDirection={"column"}
+            color={"white"}
+            colorScheme={"none"}
+          >
+            <IoPawOutline color="white" size={"4rem"} />
+            <Text mt={"2"}>ANIMAL</Text>
+            <BsDashLg />
+          </Button>
+        </Box>{" "}
+        <Box borderRadius={"lg"} width={"11rem"} height={"8.5rem"}>
+          <Button
+            colorScheme={"none"}
+            width={"100%"}
+            height={"100%"}
+            bgImage="https://ketto.gumlet.io/assets/images/homepage/causes-bg.png?w=auto&dpr=1.0"
+            display={"flex"}
+            flexDirection={"column"}
+            color={"white"}
+          >
+            <BiDonateHeart color="white" size={"4rem"} />
+            <Text mt={"2"}>OTHERS</Text>
+            <BsDashLg />
+          </Button>
+        </Box>{" "}
       </Flex>
     </div>
   );
