@@ -13,7 +13,8 @@ export const Filter=({onChange})=>{
        <ListItem fontWeight={700}>CATEGORY</ListItem>
              <Divider />
        <ListItem color={filter=="all"?"#30C9C8":"black"} cursor="pointer" onClick={()=>setFilter("all")} >All Categories</ListItem>
-        <ListItem  color={filter=="education"?"#30C9C8":"black"}cursor="pointer"onClick={()=>setFilter("education")} >Education</ListItem>
+        <ListItem color={filter=="education"?"#30C9C8":"black"}cursor="pointer"onClick={()=>setFilter("education")} >Education</ListItem>
+        <ListItem color={filter=="medical"?"#30C9C8":"black"}cursor="pointer"onClick={()=>setFilter("medical")} >Medical</ListItem>
         <ListItem color={filter=="Women_girls"?"#30C9C8":"black"}cursor="pointer"onClick={()=>setFilter("Women_girls")} >Women & Girls</ListItem>
         <ListItem color={filter=="animals"?"#30C9C8":"black"}cursor="pointer" onClick={()=>setFilter("animals")} >Animals</ListItem>
         <ListItem color={filter=="creative"?"#30C9C8":"black"}cursor="pointer" onClick={()=>setFilter("creative")} >Creative</ListItem>
