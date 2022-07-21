@@ -4,6 +4,7 @@ const initialState = {
   funds: [],
   isLoading: false,
   isError: false,
+  loadingState:false
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -16,8 +17,15 @@ export const reducer = (state = initialState, { type, payload }) => {
         isError: false,
       };
     }
-    case types.GET_DATA_REQUEST: {
-      return {
+
+    case(types.CHANGE_LOADING):{
+      return{
+        ...state,
+        loadingState:payload
+      }
+    }
+    case(types.GET_DATA_REQUEST):{
+      return{
         ...state,
         isLoading: true,
       };
