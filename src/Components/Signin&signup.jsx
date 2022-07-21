@@ -14,15 +14,29 @@ import {
 } from "@chakra-ui/react";
  
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import loginapi from "../Redux/AuthReducer/auth.actions";
 
 const Login = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectway, setway] = useState(false);
   const [otp, setotp] = useState(false);
   const [signup,setsignup] = useState(false)
+  const dispatch = useDispatch()
+  const {isAuth,isLoading} = useSelector((state) => state.AuthReducer)
+  const [loginuser,setloginuser] = useState({
+    email:"",
+    password:"",
+  })
  
- 
- 
+  const handlelogin = () => {
+    dispatch(loginapi(loginuser))
+     if(isAuth){
+      localStorage.setItem("user",JSON.stringify(loginuser))
+    }
+  }
+  console.log(isAuth)
+
 return (
     <>
       <Button
@@ -111,6 +125,7 @@ return (
                           data-cy="add-product-title"
                           placeholder="Email/Mobile number"
                           type={"email"}
+                          onChange={(e) => setloginuser({...loginuser,email:e.target.value})}
                           name="title"
                         />
                         <Input
@@ -119,6 +134,7 @@ return (
                           placeholder="Password"
                           maxLength={8}
                           type={"password"}
+                          onChange={(e) => setloginuser({...loginuser,password:e.target.value})}
                           name="title"
                         />
                         <Button
@@ -127,7 +143,7 @@ return (
                             color: "white",
                             backgroundColor: "#01bfbd",
                           }}
-                          onClick={() => setotp(!otp)}
+                          onClick={() => {setotp(!otp);handlelogin()}}
                           data-cy="add-product-submit-button"
                         >
                           Sign in
