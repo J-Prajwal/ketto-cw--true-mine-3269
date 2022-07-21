@@ -22,7 +22,7 @@ export const getdatasuccess=(payload)=>{
 }
 export const getdata=(filter)=>(dispatch)=>{
      
-    if(filter&&filter!="all"){
+    if(filter&&filter!=="all"){
         dispatch(getdatarequest())
     return axios.get(`https://qr1zme.sse.codesandbox.io/funds?category=${filter}`).then((res)=>{
          

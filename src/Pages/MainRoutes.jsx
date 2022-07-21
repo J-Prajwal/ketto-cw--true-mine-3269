@@ -22,6 +22,7 @@ const MainRoutes = () => {
           // </RequiredAuth>
         }
       ></Route>
+      <Route path="/crowdfunding/fundraisers/:name"></Route>
       <Route path="/crowdfunding" element={<HowItWorks />}></Route>
     </Routes>
   );
