@@ -15,6 +15,10 @@ import {
   Container,
   Image,
   Img,
+  Textarea,
+  Portal,
+  MenuDivider,
+  MenuGroup,
 } from "@chakra-ui/react";
 // import { navigate } from "react-dom";
 import { ChevronDownIcon, PhoneIcon, ViewOffIcon } from "@chakra-ui/icons";
@@ -32,7 +36,7 @@ const NewFundRaiser2 = () => {
     console.log();
   };
   return (
-    <Box bg="#3d3d3d" w={"100%"} h={"741px"}>
+    <Box bg="#3d3d3d" w={"100%"}>
       <br />
       <Container ml="518px">
         <Menu bg="white">
@@ -125,14 +129,74 @@ const NewFundRaiser2 = () => {
               variant="flushed"
               placeholder="How much do you want to raise"
             />
-            <Image w="20px" h="20px" src={qmark}></Image>
+            <Image w="30px" h="30px" src={qmark}></Image>
           </Flex>
 
           <br />
+
           <br />
+
           <br />
+
           <br />
+
+          <Box>
+            <Menu preventOverflow={true}>
+              <MenuButton px={"4"} py={"2"} as={Button} colorScheme="pink">
+                Profile
+              </MenuButton>
+              <MenuList preventOverflow={true}>
+                <MenuGroup title="Parent">
+                  <MenuItem>Father</MenuItem>
+                  <MenuItem>Mother</MenuItem>
+                  <MenuItem>Grand Father</MenuItem>
+                  <MenuItem>Grand Mother</MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuGroup title="Spouse">
+                  <MenuItem>Husband</MenuItem>
+                  <MenuItem>Wife</MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuGroup title="Child">
+                  <MenuItem>Son</MenuItem>
+                  <MenuItem>Daughter</MenuItem>
+                  <MenuItem>Twins</MenuItem>
+                  <MenuItem>Grandson</MenuItem>
+                  <MenuItem>Granddaughter</MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuGroup title="Sibling">
+                  <MenuItem>Brother</MenuItem>
+                  <MenuItem>Sister</MenuItem>
+                </MenuGroup>
+                <MenuDivider />
+                <MenuGroup title="Others">
+                  <MenuItem>Friend</MenuItem>
+                  <MenuItem>Friend's Family</MenuItem>
+                  <MenuItem>Cousin</MenuItem>
+                  <MenuItem>Uncle</MenuItem>
+                  <MenuItem>Aunt</MenuItem>
+                  <MenuItem>Nephew</MenuItem>
+                  <MenuItem>Niece</MenuItem>
+                  <MenuItem>Colleague</MenuItem>
+                  <MenuItem>Relative</MenuItem>
+                  <MenuItem>Legal Ward</MenuItem>
+                  <MenuItem>Other</MenuItem>
+                </MenuGroup>
+              </MenuList>
+            </Menu>
+          </Box>
           <br />
+          <hr />
+          <Text fontSize="12px" color="#b4ada6" fontStyle={"italic"}>
+            You can easily make changes to your fundraiser at any time
+          </Text>
+          <Box bg="#bfefee" fontSize="14px" w="420px">
+            <Text ml="20px">
+              Ketto's zero platform fee policy will ensure more funds for you.
+            </Text>
+          </Box>
         </Stack>
       </Box>
       <Box
