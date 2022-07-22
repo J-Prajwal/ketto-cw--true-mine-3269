@@ -4,6 +4,7 @@ import { CVideo } from "./CVideo";
 import data1 from "./sam.json";
 import { Container, Text, Heading, HStack } from "@chakra-ui/react";
 import StartFundraiserSteps from "../Components/StartFundraiserSteps";
+import WeProvide from "./WeProvide";
 
 export const CFunding = () => {
   const [details] = useState(data1);
@@ -24,6 +25,7 @@ export const CFunding = () => {
         })}
       </HStack>
       <StartFundraiserSteps />
+      <WeProvide/>
     </Container>
   );
 };
