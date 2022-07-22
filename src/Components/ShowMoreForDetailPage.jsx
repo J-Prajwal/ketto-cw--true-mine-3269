@@ -49,7 +49,7 @@ export const ShowMoreData=({showalllist})=>{
             </Box>
 
             {showalllist? null: <Container textAlign="center">
-                      <Button onClick={()=>{setshowall(!showall)}} _hover={{background:"white"}} color= '#30C9C8'variant="ghost" rightIcon= {showall?<BiChevronDown/>:<BiChevronUp/>} >{showall?"Show less": "Show more"}</Button>
+                      <Button onClick={()=>{setshowall(!showall)}} _hover={{background:"white"}} color= '#30C9C8'variant="ghost" rightIcon= {showall?<BiChevronUp/>:<BiChevronDown/>} >{showall?"Show less": "Show more"}</Button>
             </Container>}
         
     </Box>

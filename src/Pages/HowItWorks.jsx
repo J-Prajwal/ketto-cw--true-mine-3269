@@ -9,6 +9,8 @@ import { ChevronDownIcon } from '@chakra-ui/icons/'
 import {FaFlagUsa} from "react-icons/fa"
 import {IoMdContact} from "react-icons/io"
 import {ImWhatsapp} from "react-icons/im"
+ 
+ 
 const HowItWorks = () => {
   const [selectstate,setselectstate]=useState("What will be the funds used for?")
   return (
@@ -18,6 +20,7 @@ const HowItWorks = () => {
       <HStack spacing="auto" >
         <Stack spacing={5} margin="auto" >
              <Carousel/> 
+              
           <HStack  borderRadius={10} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" spacing={14} textAlign="center" >
             <Box padding={5} > 
                 <Heading  fontSize="28" color="#30C9C8" >55 Lakh+</Heading> 
