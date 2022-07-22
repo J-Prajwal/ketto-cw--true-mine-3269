@@ -19,7 +19,7 @@ const Header = () => {
  const navigate=useNavigate()
  
   return (
-    <Container padding={5} maxW='container.xl' className='navbarheader'>
+   <Container  boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" maxW="container.2xl"> <Container     padding={5} maxW='container.xl' className='navbarheader'>
         <HStack spacing="auto">
             <HStack spacing={8} width="60%">
               <Image cursor="pointer" onClick={()=>{navigate("/")}} marginTop={-5} width="70px" src="https://ketto.gumlet.io/assets/images/logo-light-bg.svg?w=70&dpr=1.0"/>
@@ -44,6 +44,7 @@ const Header = () => {
               <Button height={8}  fontWeight={400} variant="ghost"  _hover={{background:"none"}} ><Login/></Button>
             </HStack>
         </HStack>
+    </Container>
     </Container>
   )
 }
