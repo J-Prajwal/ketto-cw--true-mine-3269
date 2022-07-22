@@ -24,10 +24,11 @@ import SuccessStories from "../Components/SuccessStories";
 
 const Homepage = () => {
   return (
-    <div>
+    <div >
       {/* Banner starts here */}
       <Flex width={"100%"}>
         <Box
+       
           height={["30rem", "30rem", "30rem"]}
           width={["100%", "100%", "100%"]}
           display="flex"
