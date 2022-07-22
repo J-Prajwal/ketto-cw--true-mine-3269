@@ -1,8 +1,9 @@
 {
-  "name": "project",
+  "name": "my-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@chakra-ui/accordion": "^2.0.6",
     "@chakra-ui/icons": "^2.0.4",
     "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.9.3",
@@ -22,6 +23,7 @@
     "redux": "^4.2.0",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.5",
+    "swiper": "^8.3.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
