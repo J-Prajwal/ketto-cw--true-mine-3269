@@ -9,10 +9,19 @@ import {
   Image,
   Container,
   Center,
+  Stack,
+  ButtonGroup,
 } from "@chakra-ui/react";
 import React from "react";
 import { GiMartyrMemorial } from "react-icons/gi";
-import { FaBriefcaseMedical, FaPaw } from "react-icons/fa";
+import {
+  FaBriefcaseMedical,
+  FaFacebook,
+  FaFacebookSquare,
+  FaPaw,
+  FaWhatsapp,
+  FaWhatsappSquare,
+} from "react-icons/fa";
 import { BsDashLg } from "react-icons/bs";
 import { BiDonateHeart } from "react-icons/bi";
 import { TbSchool, TbMoodKid } from "react-icons/tb";
@@ -20,15 +29,17 @@ import { IoPawOutline } from "react-icons/io5";
 import CardSlider from "../Components/CardSlider";
 import StartFundraiserSteps from "../Components/StartFundraiserSteps";
 import SuccessStories from "../Components/SuccessStories";
+import FeaturedIn from "../Components/FeaturedIn";
+import { Link } from "react-router-dom";
+import Footer from "../Components/Footer";
 // import "../Assets/Images/industry.png";
 
 const Homepage = () => {
   return (
-    <div >
+    <div>
       {/* Banner starts here */}
       <Flex width={"100%"}>
         <Box
-       
           height={["30rem", "30rem", "30rem"]}
           width={["100%", "100%", "100%"]}
           display="flex"
@@ -502,7 +513,74 @@ const Homepage = () => {
           </Text>
         </Flex>
       </Grid>
+      <Heading textAlign={"center"} mt={"20"} mb={"20"}>
+        Success Stories
+      </Heading>
       <SuccessStories />
+      <Center mt={"10"}>
+        <Stack direction={"row"}>
+          <ButtonGroup gap={"4"}>
+            <Button
+              fontWeight={"bold"}
+              height={"50px"}
+              width={"300px"}
+              bgColor={"#01bfbd"}
+              colorScheme={"teal"}
+              variant={"solid"}
+            >
+              START A FUNDRAISER FOR FREE
+            </Button>
+            <Button
+              fontWeight={"bold"}
+              height={"50px"}
+              width={"300px"}
+              border={"2px"}
+              colorScheme={"teal"}
+              variant={"outline"}
+            >
+              TALK TO US
+            </Button>
+          </ButtonGroup>
+        </Stack>
+      </Center>
+      <Heading textAlign={"center"} mt={"10"} mb={"10"}>
+        Featured In
+      </Heading>
+      <FeaturedIn />
+      <Flex
+        justifyContent={"center"}
+        gap={"5rem"}
+        width={"93%"}
+        m={"auto"}
+        mt={"20"}
+      >
+        <Box display={"flex"} alignItems={"center"}>
+          <Text>
+            Have any questions? Check out our <Link to="#" color="teal">FAQs</Link> page or chat with us on Facebook or Whatsapp
+          </Text>
+        </Box>
+        <Box>
+          <ButtonGroup gap={"6"} size={"md"}>
+            <Button
+              dropShadow={"base"}
+              rounded={"3xl"}
+              colorScheme={"facebook"}
+              leftIcon={<FaFacebookSquare />}
+            >
+              CHAT WITH US
+            </Button>
+            <Button
+              dropShadow={"base"}
+              rounded={"3xl"}
+              colorScheme={"whatsapp"}
+              leftIcon={<FaWhatsapp />}
+            >
+              CHAT WITH US
+            </Button>
+          </ButtonGroup>
+        </Box>
+      </Flex>
+      <Footer />
     </div>
   );
 };
