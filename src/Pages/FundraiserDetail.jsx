@@ -18,7 +18,7 @@ import { ShowMoreData } from "../Components/ShowMoreForDetailPage"
 
 export const FundraiserDetail=()=>{
 const [comments,setComments]=useState([])
-
+const [text,settext]=useState("")
     const colors = useColorModeValue(
         ['red.50', 'teal.50', 'blue.50'],
         ['red.900', 'teal.900', 'blue.900'],
@@ -54,9 +54,11 @@ const [comments,setComments]=useState([])
 
         <HStack spacing="auto">
             <Container  maxW="container.xl">
-                <Box  boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px">
-                    <Image src={curr?.mainImg}/>
-                   <HStack margin="auto">
+                <Box  boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  borderRadius={10}>
+                    <Container margin="auto">
+                     <Image src={curr?.mainImg}/>
+                    </Container>
+                   <HStack margin="auto" >
                         <Box width="80%"></Box>
                         <Box pt={10} pr={20} >
                         <Button  _hover={{background:'#30C9C8' ,color:"white"}} color= '#30C9C8' background="none" leftIcon={<BsFillShareFill/>} borderRadius="none" boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" >Share This Fundraiser</Button>
@@ -70,24 +72,71 @@ const [comments,setComments]=useState([])
                         </TabList>
                         <TabPanels p='2rem'>
                             <TabPanel>
-                                <Box>
+                                <Box >
                                     <Text  padding={10}>{curr?.about[0].desc[0]}</Text>
-                                    <Image src={curr?.about[0].images[0]} />
+                                    <Container margin="auto"  width="60%" height="60%"> 
+                                         <Image src={curr?.about[0].images[0]} />
+                                    </Container>
                                     <Text  padding={10}>{curr?.about[0].desc[1]}</Text>
-                                    <Image src={curr?.about[0].images[1]} />
-                                    <Text  padding={10}>{curr?.about[0].desc[2]}</Text>
+                                    <Container width="60%" height="60%"  margin="auto">
+                                             <Image  src={curr?.about[0].images[1]} />
+                                    </Container>
+                                    {/* <Text  padding={10}>{curr?.about[0].desc[2]}</Text> */}
                                 </Box>
                             </TabPanel>
-                            <TabPanel>Are 1, 2, 3</TabPanel>
-                            <TabPanel>Red, yellow and blue.</TabPanel>
+                            <TabPanel>
+                                <Box height={"80vh"}>
+                                    We have got nothing new in Update.<br/>We will keep you updated
+
+                                </Box>
+                            </TabPanel>
+                            <TabPanel>
+                                <Box  height={"80vh"}>
+                                    {comments?.map((el)=>{
+                                        return <Text>{el}</Text>
+                                    })}
+                                </Box>
+                            </TabPanel>
                         </TabPanels>
                      </Tabs>
                 </Box>
-                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"></Box>
-                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" marginTop={10}  padding={5}> 
+                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10}  borderRadius={10}>
+                    <Box padding={5}>
+                        
+                        <Text padding={5} fontSize="large" fontWeight={700}>Other Donation Methods</Text>
+                    <Divider width="90%"margin="auto"/>
+                    <Box padding={5} background="#F9F9F9" margin={1}>
+                        <Text><b>You can also pay via Paytm/UPI QR code</b> <br/>Scan the QR code from the app and make payment.</Text>
+                         <HStack  spacing="auto" padding={5}>
+                            <Box >
+                                <Text fontWeight={700}>For Paytm</Text>
+                                <Container background="red"  height="30vh" margin={1} width="74%" objectFit="contain" backgroundImage="https://ketto.gumlet.io/assets/images/story/upi_qr_sample.png?w=320&dpr=1.0" backgroundRepeat="no-repeat">
+                                
+                                   <Box p={50}>
+                                        <Button>Generat QR Code</Button>
+                                   </Box>
+                                </Container>
+                            </Box>
+                            <Box>
+                                <Text fontWeight={700}>For Other Apps</Text>
+                                <Container background="red"  height="30vh" margin={1} width="74%" objectFit="contain" backgroundImage="https://ketto.gumlet.io/assets/images/story/upi_qr_sample.png?w=320&dpr=1.0" backgroundRepeat="no-repeat">
+                                
+                                   <Box p={50}>
+                                        <Button>Generat QR Code</Button>
+                                   </Box>
+                                </Container>
+                            </Box>
+                         </HStack>
+                         <Box borderRadius={10} fontSize={16} padding={5} backgroundImage="https://kettocdn.gumlet.io/images/payment_gateways/upi-card-bg.png?w=320&dpr=1.0" backgroundRepeat="no-repeat" backgroundColor="#30C9C8">
+                            <Text  fontWeight={700} color="white">Claim your donation acknowledgement now! For payment done via Paytm and UPI</Text> 
+                    </Box>
+                    </Box>
+                </Box>
+                </Box>
+                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" marginTop={10}  borderRadius={10} padding={5}> 
                     <Box border="1px solid black" >
                      
-                         <Text padding={5} fontSize="large" fontWeight={700}>REFER A FRIEND</Text>
+                        <Text padding={5} fontSize="large" fontWeight={700}>REFER A FRIEND</Text>
                     <Divider width="90%"margin="auto"/>
                     <Box padding={10}>
                         <Text>In need of funds for medical treatment or know someone who might be? Share the details and Ketto will get in touch with.</Text>
@@ -97,17 +146,11 @@ const [comments,setComments]=useState([])
                     </Box>
                     </Box>
                 </Box>
-
-
-               
-
-
-                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"></Box>
             </Container>
            
             <Container>
                  
-               <Box mt={10} >
+               <Box mt={10}  borderRadius={10} >
                     <Button backgroundColor= '#30C9C8' _hover={{background:"teal"}} color="white"padding={10} width="80%" leftIcon={<BsFillSuitHeartFill/>} fontSize="larger" fontWeight={700} >CONTRIBUTE NOW</Button>
                     <HStack spacing={5} padding={2} m="auto">
                         <Button _hover={{color:'teal',border:"2px solid teal"} }variant="outline" leftIcon={<AiOutlineCreditCard/>} fontSize={10}>All credit <br/> & Debit Cards</Button>
@@ -136,7 +179,7 @@ const [comments,setComments]=useState([])
                     </HStack>
                 </Box> 
                
-                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10} width="90%">
+                <Box  borderRadius={10} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10} width="90%">
                     <HStack spacing="auto" padding={5}>
                         <Image  width={20} borderRadius={50}  src="https://www.nicepng.com/png/detail/251-2513189_adarsh-shiksha-samiti-ngo.png"/>
                         <Stack>
@@ -154,7 +197,7 @@ const [comments,setComments]=useState([])
                         <Button colorScheme="blue" variant="ghost" fontSize="small" leftIcon={<GrContact color="blue"/>}>Contact</Button>
                       </HStack>
                 </Box>
-                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10} width="90%">
+                <Box  borderRadius={10} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10} width="90%">
                     <HStack padding={5}>
                         <RiMoneyDollarCircleFill fontSize={28}/>
                         <Text fontSize="larger" fontWeight={700}>Fundraiseing Team</Text>
@@ -174,7 +217,7 @@ const [comments,setComments]=useState([])
                     </HStack> 
 
                 </Box>
-                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" width="90%">
+                <Box   borderRadius={10} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" width="90%">
                 <HStack padding={5} mt={10}>
                         <BsTrophyFill fontSize={28}/>
                         <Text fontSize="larger" fontWeight={700}>Top Donors</Text>
@@ -185,7 +228,7 @@ const [comments,setComments]=useState([])
 
 
                 </Box>
-                <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10} width="90%">
+                <Box  borderRadius={10} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10} width="90%">
                     <HStack padding={5}>
                         <GrAnnounce fontSize={28}/>
                         <Text fontSize="larger" fontWeight={700}>Most Raised from Social Sharing</Text>
@@ -193,7 +236,7 @@ const [comments,setComments]=useState([])
                     <Divider/>
                     <ShowMoreData/>
                 </Box>
-                <Box  boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10} width="90%">
+                <Box  borderRadius={10} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px" mt={10} width="90%">
                      <HStack padding={5} spacing={2} >
                         <RiTeamLine fontSize={28}/>
                         <Text fontSize="large" fontWeight={700}>{curr?.supporters} Supporters</Text>
@@ -211,13 +254,22 @@ const [comments,setComments]=useState([])
             </Container>
             
         </HStack>
-        <Box boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  marginTop={10}  padding={5}>
+        <Box   borderRadius={10} boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  marginTop={10}  padding={5}>
                     <Box >
                         
-                        <Text padding={5} fontSize="large" fontWeight={700}>Supporters’ Comments {comments.length}</Text>
+                        <Text padding={5} fontSize="large" fontWeight={700}>Supporter's Comments {comments.length}</Text>
                     <Divider width="90%"margin="auto"/>
                     <Box padding={10}>
-                         <Input placeholder={`Write Something to cheer ${curr?.raisedBy}`}/>
+                         <Input value={text} placeholder={`Write Something to cheer ${curr?.raisedBy}`} onChange={(e)=>settext(e.target.value)}/>
+                        <Button onClick={()=>{
+                            setComments([text,...comments])
+                            settext("")
+                        }} >Post</Button>
+                    </Box>
+                    <Box ml={5} >
+                        {comments?.map((el)=>{
+                            return <Text p={5}>{el}</Text>
+                        })}
                     </Box>
                     </Box>
                 </Box>
