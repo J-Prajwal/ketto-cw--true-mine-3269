@@ -26,6 +26,7 @@ const MainRoutes = () => {
       ></Route>
       <Route path="/crowdfunding/fundraisers/:name" element={<FundraiserDetail/>}></Route>
       <Route path="/crowdfunding" element={<HowItWorks />}></Route>
+      <Route path="/fundraiser/" element={<FundraiseDetail/>}></Route> 
     </Routes>
   );
 };

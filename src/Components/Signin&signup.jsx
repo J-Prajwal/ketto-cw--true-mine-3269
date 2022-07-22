@@ -23,7 +23,7 @@ const Login = () => {
   const [otp, setotp] = useState(false);
   const [signup,setsignup] = useState(false)
   const dispatch = useDispatch()
-  const {isAuth,isLoading} = useSelector((state) => state.AuthReducer)
+  const {isAuth} = useSelector((state) => state.AuthReducer)
   const [loginuser,setloginuser] = useState({
     email:"",
     password:"",
@@ -92,7 +92,7 @@ return (
                           data-cy="add-product-title"
                           placeholder="Mobile number"
                           name="title"
-                          maxLength={1}
+                          maxLength={10}
                           type={"number"}
                         />
                         {otp === true ? (
