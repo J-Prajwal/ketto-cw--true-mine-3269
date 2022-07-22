@@ -8,7 +8,7 @@ import {
   Grid,
   Image,
   Container,
-  GridItem,
+  Center,
 } from "@chakra-ui/react";
 import React from "react";
 import { GiMartyrMemorial } from "react-icons/gi";
@@ -19,7 +19,8 @@ import { TbSchool, TbMoodKid } from "react-icons/tb";
 import { IoPawOutline } from "react-icons/io5";
 import CardSlider from "../Components/CardSlider";
 import StartFundraiserSteps from "../Components/StartFundraiserSteps";
-import "../Assets/Images/industry.png";
+import SuccessStories from "../Components/SuccessStories";
+// import "../Assets/Images/industry.png";
 
 const Homepage = () => {
   return (
@@ -386,97 +387,121 @@ const Homepage = () => {
           </Button>
         </Box>{" "}
       </Flex>
-      <Box textAlign={"center"} mt={"3rem"}>
+      <Box textAlign={"center"} mt={"20"}>
         <Heading>Why Ketto?</Heading>
       </Box>
       <Grid
         templateColumns={"repeat(4, 1fr)"}
-        border={"1px solid red"}
         width={"75%"}
         m={"auto"}
+        mt={"20"}
         gap={"1rem"}
       >
-        <GridItem>
+        <Flex width={"80%"} direction={"column"} alignItems={"center"}>
           <Box
             w={"5rem"}
             h={"5rem"}
-            border={"1px solid red"}
             bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
             bgSize={"contain"}
+            bgRepeat={"no-repeat"}
+            borderBottom={"4px solid orange"}
           ></Box>
-          <Text>Industry's best fundraising success rate</Text>
-        </GridItem>
-        <GridItem>
+          <Text mt={"2"} textAlign={"center"}>
+            Industry's best fundraising success rate
+          </Text>
+        </Flex>
+        <Flex width={"80%"} direction={"column"} alignItems={"center"}>
           <Box
             w={"5rem"}
             h={"5rem"}
-            border={"1px solid red"}
-            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgImage={"https://i.postimg.cc/VvbMzx7L/our-Supporters.png"}
             bgSize={"contain"}
+            bgRepeat={"no-repeat"}
+            borderBottom={"4px solid orange"}
           ></Box>
-          <Text>Industry's best fundraising success rate</Text>
-        </GridItem>
-        <GridItem>
+          <Text mt={"2"} textAlign={"center"}>
+            Supported By 55,00,000+ Donors
+          </Text>
+        </Flex>
+        <Flex width={"80%"} direction={"column"} alignItems={"center"}>
           <Box
             w={"5rem"}
             h={"5rem"}
-            border={"1px solid red"}
-            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgImage={"https://i.postimg.cc/6QpxFt3R/tools.png"}
             bgSize={"contain"}
+            bgRepeat={"no-repeat"}
+            borderBottom={"4px solid orange"}
           ></Box>
-          <Text>Industry's best fundraising success rate</Text>
-        </GridItem>
-        <GridItem>
+          <Text mt={"2"} textAlign={"center"}>
+            Easy-To-Manage Tools To Boost Results
+          </Text>
+        </Flex>
+        <Flex width={"80%"} direction={"column"} alignItems={"center"}>
           <Box
             w={"5rem"}
             h={"5rem"}
-            border={"1px solid red"}
-            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgImage={"https://i.postimg.cc/SKHq9HSM/donation.png"}
             bgSize={"contain"}
+            bgRepeat={"no-repeat"}
+            borderBottom={"4px solid orange"}
           ></Box>
-          <Text>Industry's best fundraising success rate</Text>
-        </GridItem>
-        <GridItem>
+          <Text mt={"2"} textAlign={"center"}>
+            Receive donations via all popular payment modes
+          </Text>
+        </Flex>
+        <Flex width={"80%"} direction={"column"} alignItems={"center"}>
           <Box
             w={"5rem"}
             h={"5rem"}
-            border={"1px solid red"}
-            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgImage={"https://i.postimg.cc/J7pM8pvZ/suppport-System.png"}
             bgSize={"contain"}
+            bgRepeat={"no-repeat"}
+            borderBottom={"4px solid orange"}
           ></Box>
-          <Text>Industry's best fundraising success rate</Text>
-        </GridItem>
-        <GridItem>
+          <Text mt={"2"} textAlign={"center"}>
+            Get Expert Support 24/7
+          </Text>
+        </Flex>
+        <Flex width={"80%"} direction={"column"} alignItems={"center"}>
           <Box
             w={"5rem"}
             h={"5rem"}
-            border={"1px solid red"}
-            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgImage={"https://i.postimg.cc/5yrt2g74/dashboard.png"}
             bgSize={"contain"}
+            bgRepeat={"no-repeat"}
+            borderBottom={"4px solid orange"}
           ></Box>
-          <Text>Industry's best fundraising success rate</Text>
-        </GridItem>
-        <GridItem>
+          <Text mt={"2"} textAlign={"center"}>
+            A Dedicated Smart-Dashboard
+          </Text>
+        </Flex>
+        <Flex width={"80%"} direction={"column"} alignItems={"center"}>
           <Box
             w={"5rem"}
             h={"5rem"}
-            border={"1px solid red"}
-            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            bgImage={"https://i.postimg.cc/pLBGFSvL/withdraw.png"}
             bgSize={"contain"}
+            bgRepeat={"no-repeat"}
+            borderBottom={"4px solid orange"}
           ></Box>
-          <Text>Industry's best fundraising success rate</Text>
-        </GridItem>
-        <GridItem>
+          <Text>Withdraw Funds Without Hassle</Text>
+        </Flex>
+        <Flex width={"80%"} direction={"column"} alignItems={"center"}>
           <Box
             w={"5rem"}
             h={"5rem"}
-            border={"1px solid red"}
-            bgImage={"https://i.postimg.cc/RZrxhJCx/industry.png"}
+            // border={"1px solid red"}
+            bgImage={"https://i.postimg.cc/QNbv5Vq3/international.png"}
             bgSize={"contain"}
+            bgRepeat={"no-repeat"}
+            borderBottom={"4px solid orange"}
           ></Box>
-          <Text>Industry's best fundraising success rate</Text>
-        </GridItem>
+          <Text mt={"2"} textAlign={"center"}>
+            International Payment Support
+          </Text>
+        </Flex>
       </Grid>
+      <SuccessStories />
     </div>
   );
 };
