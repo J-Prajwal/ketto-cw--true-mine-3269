@@ -10,7 +10,7 @@ import {FaFlagUsa} from "react-icons/fa"
 import {IoMdContact} from "react-icons/io"
 import {ImWhatsapp} from "react-icons/im"
 const HowItWorks = () => {
-  const [selectstate,setselectstate]=useState("What will be the funds used for?'")
+  const [selectstate,setselectstate]=useState("What will be the funds used for?")
   return (
     <Container maxW="container.2xl" padding={10} margin="auto">
       <Heading fonSize="xl" color="teal" margin={5} textAlign="center" >Raising Funds was never this easy. Start a <br/> fundraiser in 5 minutes!</Heading>
@@ -59,7 +59,7 @@ const HowItWorks = () => {
                 </InputGroup> 
             <InputGroup>
             <Menu >
-              <MenuButton width="100%" value=' What will be the funds used for?' borderRadius="none" borderBottom="1px solid lightgrey" variant="flused"  as={Button} rightIcon={<ChevronDownIcon />}>
+              <MenuButton width="100%" value='What will be the funds used for?' borderRadius="none" borderBottom="1px solid lightgrey" variant="flused"  as={Button} rightIcon={<ChevronDownIcon />}>
            <Text textAlign="left" fontWeight={400}> {selectstate}</Text>
               </MenuButton>
               <MenuList direction="rtl">

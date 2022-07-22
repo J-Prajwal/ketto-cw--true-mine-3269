@@ -39,7 +39,7 @@ const StartFundraiserSteps = () => {
           // justifyContent={"space-between"}
         >
           <Box>
-            <Heading fontWeight={"medium"} size={"md"} color={"teal.500"}>
+            <Heading fontWeight={"medium"} size={"md"} color={"#01bfbd"}>
               Start your fundraiser
             </Heading>
             <br />
@@ -49,7 +49,7 @@ const StartFundraiserSteps = () => {
             </Text>
           </Box>
           <Box mt={"20"}>
-            <Heading fontWeight={"medium"} size={"md"} color={"teal.500"}>
+            <Heading fontWeight={"medium"} size={"md"} color={"#01bfbd"}>
               Share your fundraiser
             </Heading>
             <br />
@@ -62,7 +62,7 @@ const StartFundraiserSteps = () => {
             </Text>
           </Box>
           <Box mt={"20"}>
-            <Heading fontWeight={"medium"} size={"md"} color={"teal.500"}>
+            <Heading fontWeight={"medium"} size={"md"} color={"#01bfbd"}>
               Withdraw Funds
             </Heading>
             <br />
@@ -98,9 +98,10 @@ const StartFundraiserSteps = () => {
               fontWeight={"bold"}
               height={"50px"}
               width={"300px"}
+              bgColor={"#01bfbd"}
               colorScheme={"teal"}
               variant={"solid"}
-            >
+              >
               START A FUNDRAISER FOR FREE
             </Button>
             <Button
