@@ -11,8 +11,10 @@ import {
   FormControl,
   Input,
   Flex,
+  Box,
 } from "@chakra-ui/react";
- 
+ import {BsGoogle} from "react-icons/bs"
+ import {FcGoogle} from "react-icons/fc"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import loginapi from "../Redux/AuthReducer/auth.actions"; 
@@ -306,7 +308,7 @@ return (
                         marginTop:"100px"
                       }}
                     >
-                      <img
+                      {/* <img
                         style={{
                           cursor: "pointer",
                           width: "13%",
@@ -314,15 +316,19 @@ return (
                           margin: "2%",
                           
                         }}
-                        src="https://cdn-icons.flaticon.com/png/512/2504/premium/2504914.png?token=exp=1658299748~hmac=80727ac986a21a8da705c74f5c58ee1a"
+                        src="https://e7.pngegg.com/pngimages/337/722/png-clipart-google-search-google-account-google-s-google-play-google-company-text.png"
                         alt="img"
-                      />
+                      /> */}
+                      <Box p={2} background="white" >
+                        <FcGoogle fontSize={28} m={5} />
+                      </Box>
                      
                       <span
                         style={{
                           cursor: "pointer",
-                          margin: "5px 14% 0px 0%",
+                          margin: "5px 10% 0px 0",
                           color: "white",
+                          textAlign:"center"
                         }}
                       >
                          {signup === false ? "Sign in" : "Sign up"} with Google
