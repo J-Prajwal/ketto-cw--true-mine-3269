@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -15,28 +15,40 @@ import {
  
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import loginapi from "../Redux/AuthReducer/auth.actions";
+import loginapi from "../Redux/AuthReducer/auth.actions"; 
+import { Register } from "../Redux/Register/action";
 
 const Login = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectway, setway] = useState(false);
   const [otp, setotp] = useState(false);
   const [signup,setsignup] = useState(false)
+  const registered=useSelector((state)=>state.RegisterReducer.registersuccessfull)
   const dispatch = useDispatch()
-  const {isAuth} = useSelector((state) => state.AuthReducer)
+ 
   const [loginuser,setloginuser] = useState({
-    email:"",
-    password:"",
+    email:"eve.holt@reqres.in",
+    password:"cityslicka",
   })
  
+  const [registerdata,setregisterdata]=useState({
+    email:"eve.holt@reqres.in",
+    password:"pistol",
+  })
   const handlelogin = () => {
     dispatch(loginapi(loginuser))
-     if(isAuth){
-      localStorage.setItem("user",JSON.stringify(loginuser))
-    }
   }
-  console.log(isAuth)
-
+ 
+useEffect(()=>{
+  if(registered){
+    setsignup(false)
+    setway(!selectway)
+  }
+  else{
+    setsignup(true)
+     
+  }
+},[registered])
 return (
     <>
       <Button
@@ -125,6 +137,7 @@ return (
                           data-cy="add-product-title"
                           placeholder="Email/Mobile number"
                           type={"email"}
+                          value={loginuser.email}
                           onChange={(e) => setloginuser({...loginuser,email:e.target.value})}
                           name="title"
                         />
@@ -134,6 +147,7 @@ return (
                           placeholder="Password"
                           maxLength={8}
                           type={"password"}
+                          value={loginuser.password}
                           onChange={(e) => setloginuser({...loginuser,password:e.target.value})}
                           name="title"
                         />
@@ -152,17 +166,20 @@ return (
                     )}
                     </div> :  <>
                         <Input
+                          
                           style={{ width: "100%", marginBottom: "5%" }}
                           data-cy="add-product-title"
                           placeholder="username"
-                          type={"text"}
+                          type={"email"}
                           name="title"
+                          
                         />
                         <Input
+                         value={registerdata.email}
                           style={{ width: "100%", marginBottom: "5%" }}
                           data-cy="add-product-title"
                           placeholder="Email"
-                          maxLength={8}
+                          onChange={(e)=>{setregisterdata({...registerdata,email:e.target.value})}}
                           type={"email"}
                           name="title"
                         />
@@ -172,6 +189,8 @@ return (
                           placeholder="Password"
                           maxLength={8}
                           type={"password"}
+                          value={registerdata.password}
+                          onChange={(e)=>{setregisterdata({...registerdata,password:e.target.value})}}
                           name="title"
                         />
                         <Button
@@ -180,7 +199,10 @@ return (
                             color: "white",
                             backgroundColor: "#01bfbd",
                           }}
-                          onClick={() => setotp(!otp)}
+                          onClick={() =>{
+                             dispatch(Register(registerdata))
+                             setregisterdata({email:"",password:""})
+                            } }
                           data-cy="add-product-submit-button"
                         >
                           Sign up
