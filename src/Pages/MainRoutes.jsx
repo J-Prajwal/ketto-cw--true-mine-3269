@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import RequiredAuth from "../hoc/RequiredAuth";
 import BrowseFundraiser from "./BrowseFundraiser";
+import FundraiseDetail from "./FundraiseDetail";
 import Homepage from "./Homepage";
 import HowItWorks from "./HowItWorks";
 import NewFundRaiser from "./NewFundRaiser";
@@ -24,6 +25,7 @@ const MainRoutes = () => {
       ></Route>
       <Route path="/crowdfunding/fundraisers/:name"></Route>
       <Route path="/crowdfunding" element={<HowItWorks />}></Route>
+      <Route path="/fundraiser/" element={<FundraiseDetail/>}></Route> 
     </Routes>
   );
 };
