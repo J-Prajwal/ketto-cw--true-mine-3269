@@ -213,7 +213,7 @@ const [text,settext]=useState("")
                             <Image borderRadius={50} width={10} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScXyoZXpAWph9Vnu9_ZpWgNmn20W4hlBOn-5dLmFQuww8zSfnhRRNQW7B0RRuApO_PFwg&usqp=CAU"/>
                             <Text  fontSize={14}>Prajwal Jaiswal</Text>
                         </HStack>
-                        <Text  fontSize={16}fontWeight={700}>$ 5,000</Text>
+                        <Text color= '#30C9C8' fontSize={16}fontWeight={700}>$ 5,000</Text>
                     </HStack> 
 
                 </Box>
