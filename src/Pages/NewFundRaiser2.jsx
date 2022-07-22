@@ -13,21 +13,23 @@ import {
   Flex,
   Select,
   Container,
+  Image,
+  Img,
 } from "@chakra-ui/react";
-import { navigate } from "react-dom";
+// import { navigate } from "react-dom";
 import { ChevronDownIcon, PhoneIcon, ViewOffIcon } from "@chakra-ui/icons";
+import plus from "../images/plus.jpg";
+import qmark from "../images/qmark.png";
 
 import { BiEnvelope } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import NewFundRaiser2 from "./NewFundRaiser2";
 
-const NewFundRaiser = () => {
+const NewFundRaiser2 = () => {
   const [menu, setMenu] = useState("English");
 
   const handleSubmit = () => {
-    console.log("Yes clicked");
+    console.log();
   };
   return (
     <Box bg="#3d3d3d" w={"100%"} h={"741px"}>
@@ -105,90 +107,32 @@ const NewFundRaiser = () => {
           fontWeight="bold"
           fontFamily="Helvetica"
           textAlign={"center"}
+          lineHeight="46px"
         >
-          Start your fund Raiser
+          Tell Us more about your fund Raiser
         </Text>{" "}
         <hr />
-        <br />
-        <Box
-          m="auto"
-          borderRadius="25px"
-          backgroundColor="whitesmoke"
-          padding={"0px"}
-          display="flex"
-          w="90%"
-          justifyContent={"space-around"}
-        >
-          {" "}
-          <Text ml={"35px"} lineHeight={"45px"}>
-            Purpose of raising funds{" "}
-          </Text>{" "}
-          <Menu ml="80px">
-            <MenuButton
-              outline={"none"}
-              border={"none"}
-              bg={"transparent"}
-              as={Button}
-              rightIcon={<ChevronDownIcon />}
-              // rightIcon={<BiEnvelope />}
-            >
-              Medical Treatment
-            </MenuButton>
-            <MenuList mt={"-10"} borderRadius={"15px"} width={"200px"}>
-              <MenuItem borderRadius={"15px 15px 0px 0px"}>Download</MenuItem>
-              <MenuItem>Create a Copy</MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem borderRadius={"0px 0px 15px 15px"}>Delete</MenuItem>
-            </MenuList>
-          </Menu>
-        </Box>
+        <Flex justifyContent={"center"} mt="10px">
+          <Image w="20px" h="20px" src={plus}></Image>
+          <Text fontSize={"13px"}>
+            Raising funds for <strong>Medical Treatment</strong> purpose
+          </Text>
+        </Flex>
         <br />
         <Stack spacing={3} alignItems="center">
           <Flex w="90%">
-            <Input variant="flushed" placeholder="Name" />
-            <BsFillPersonFill />
+            <Input
+              variant="flushed"
+              placeholder="How much do you want to raise"
+            />
+            <Image w="20px" h="20px" src={qmark}></Image>
           </Flex>
 
           <br />
-          <Flex w="90%">
-            <Input variant="flushed" placeholder="Emil Address" />
-            <BiEnvelope />
-          </Flex>
-          <br />
-          <Flex w="90%">
-            <Input variant="flushed" placeholder="Create a Password" />
-            <ViewOffIcon />
-          </Flex>
-
-          <br />
-          <Flex w="90%">
-            <Input variant="flushed" placeholder="Mobile" />
-            <PhoneIcon />
-          </Flex>
           <br />
           <br />
           <br />
-
           <br />
-          <br />
-          <box display="flex">
-            <Text
-              display="inline"
-              fontSize="14px"
-              color="#454545"
-              fontFamily="sans-serif"
-            >
-              Already have an account?
-            </Text>{" "}
-            <Text
-              display="inline"
-              fontSize="14px"
-              color="teal.500"
-              fontFamily="sans-serif"
-            >
-              Login
-            </Text>
-          </box>
         </Stack>
       </Box>
       <Box
@@ -200,12 +144,14 @@ const NewFundRaiser = () => {
         fontFamily={"sans-serif"}
         textAlign={"center"}
         lineHeight={"55px"}
+        fontWeight="bold"
+        color={"white"}
         onClick={() => handleSubmit()}
       >
-        Next{" "}
+        Save and continue{" "}
       </Box>
     </Box>
   );
 };
 
-export default NewFundRaiser;
+export default NewFundRaiser2;

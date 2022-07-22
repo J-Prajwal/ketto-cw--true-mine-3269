@@ -5,6 +5,7 @@ import BrowseFundraiser from "./BrowseFundraiser";
 import Homepage from "./Homepage";
 import HowItWorks from "./HowItWorks";
 import NewFundRaiser from "./NewFundRaiser";
+import NewFundRaiser2 from "./NewFundRaiser2";
 
 const MainRoutes = () => {
   return (
@@ -18,7 +19,7 @@ const MainRoutes = () => {
         path="/new/crowdfunding/type=:cat"
         element={
           // <RequiredAuth>
-          <NewFundRaiser />
+          <NewFundRaiser2 />
           // </RequiredAuth>
         }
       ></Route>
