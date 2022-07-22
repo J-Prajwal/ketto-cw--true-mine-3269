@@ -6,7 +6,6 @@ import{BsFillShareFill,BsFillSuitHeartFill } from "react-icons/bs"
 import {AiFillFacebook} from  "react-icons/ai"
 import {AiTwotoneAlert,AiOutlineCreditCard} from "react-icons/ai"
 import {BsGlobe} from "react-icons/bs"
- 
 import {BiQrScan} from "react-icons/bi"
 export const FundraiserDetail=()=>{
 
@@ -28,7 +27,7 @@ export const FundraiserDetail=()=>{
         })
     },[name])
     console.log(curr)
-    return <Container maxW="container.2xl" margin={5}>
+    return <Container maxW="container.2xl" marginTop={5}>
         <Container maxW="container.xl" margin="auto">
                 <HStack spacing="auto" padding={3} margin="auto"  width="sm"  borderRadius={50} backgroundColor="#FFF2E4" >
                      <AiTwotoneAlert  color="red" fontSize={24}/>
