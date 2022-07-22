@@ -29,6 +29,7 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
+    <Container boxShadow="rgba(100, 100, 111, 0.2) 0px 7px 29px 0px"  maxW="container.2xl" >
     <Container padding={5} maxW="container.xl" className="navbarheader">
       <HStack spacing="auto">
         <HStack spacing={8} width="60%">
@@ -122,6 +123,7 @@ const Header = () => {
           </Button>
         </HStack>
       </HStack>
+     </Container>
     </Container>
   );
 };
