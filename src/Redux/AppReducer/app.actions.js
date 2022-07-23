@@ -20,6 +20,35 @@ export const getdatasuccess=(payload)=>{
         payload
     }
 }
+
+export const adddatarequest = () => {
+    return {
+      type: types.POST_DATA_REQUEST,
+    };
+  };
+  
+  export const adddatafailure=()=>{
+      return{
+          type:types.GET_DATA_FAILURE
+      }
+  }
+  export const adddatasuccess=(payload)=>{
+      return{
+          type:types.GET_DATA_SUCCESS,
+          payload
+      }
+  }
+export const postdata=(data)=>(dispatch)=>{
+        dispatch(adddatarequest())
+        axios.post("https://qr1zme.sse.codesandbox.io/funds").then((res)=>{
+
+            dispatch(getdata())
+
+        }).catch((err)=>{
+            dispatch(adddatafailure())
+        })
+}
+
 export const changeloadin=(payload)=>{
     return{
         type:types.CHANGE_LOADING,
@@ -51,3 +80,4 @@ export const getdata=(filter,location,limit)=>(dispatch)=>{
     }
     
 }
+

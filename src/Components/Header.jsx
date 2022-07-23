@@ -3,17 +3,16 @@ import {
   Container,
   HStack,
   Image,
-  Select,
-  option,
+  
   Text,
   Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
-  MenuItemOption,
+   
   MenuGroup,
-  MenuOptionGroup,
+  
   MenuDivider,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
