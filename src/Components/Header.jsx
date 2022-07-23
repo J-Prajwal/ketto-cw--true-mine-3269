@@ -148,7 +148,7 @@ const isAuth=useSelector((state)=>state.AuthReducer.isAuth)
                   <MenuItem>View My Impact</MenuItem>
                   <MenuItem onClick={()=>{
                     localStorage.clear()
-                   Logout(dispatch)
+                    Logout(dispatch)
                     }}>Log out</MenuItem>
                 </MenuGroup>
               </MenuList>

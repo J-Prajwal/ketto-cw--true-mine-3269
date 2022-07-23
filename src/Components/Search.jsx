@@ -24,8 +24,11 @@ const Search = () => {
     const [suggestion,setSuggestion]=useState([])
    const data=useSelector((state)=>state.searchReducer.funds)
   //  const loadingState=useSelector((state)=>state.AppReducer.loadingState)
+
+  const [hide,sethide]=useState(false)
+   
     useEffect(()=>{
-       
+
             dispatch(getdata())
             dispatch(changeloadin(false))
         if(!value){
@@ -38,7 +41,7 @@ const Search = () => {
       
     },[value])
  
-    
+     
     
   return (
     <>
@@ -46,7 +49,7 @@ const Search = () => {
        Search
       </Button>
 
-      <Drawer placement="top" onClose={onClose} isOpen={isOpen}>
+      <Drawer placement="top"  onClose={onClose} isOpen={isOpen}>
        <DrawerOverlay />
         <DrawerContent >
         <Container maxW='container.xl' borderBottom=".5px solid grey" >
@@ -72,7 +75,7 @@ const Search = () => {
             
                 {suggestion?.map((el,index)=>{
                     if(index<3){
-                        return <SearchResultCard key={el.id} {...el}/>
+                        return <SearchResultCard OnClick={(value)=>{sethide(value)}} key={el.id} {...el}/>
                     }
                    
                 })}

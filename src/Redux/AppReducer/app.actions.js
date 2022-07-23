@@ -39,8 +39,9 @@ export const adddatarequest = () => {
       }
   }
 export const postdata=(data)=>(dispatch)=>{
+    console.log(data)
         dispatch(adddatarequest())
-        axios.post("https://qr1zme.sse.codesandbox.io/funds").then((res)=>{
+       return axios.post("https://qr1zme.sse.codesandbox.io/funds",data).then((res)=>{
 
             dispatch(getdata())
 
