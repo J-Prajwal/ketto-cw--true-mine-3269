@@ -1,4 +1,4 @@
-import { CheckIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { CheckIcon, ChevronDownIcon, PhoneIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -16,9 +16,12 @@ import {
   MenuItem,
   MenuList,
   Select,
+  Stack,
   Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+import { BiEnvelope } from "react-icons/bi";
+import { BsFillPersonFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const NewFundRaiser = () => {
@@ -176,7 +179,7 @@ const NewFundRaiser = () => {
         textAlign={"center"}
         lineHeight={"55px"}
         cursor={"pointer"}
-        onClick={() => handleSubmit()}
+        // onClick={() => handleSubmit()}
       >
         Next{" "}
       </Box>
