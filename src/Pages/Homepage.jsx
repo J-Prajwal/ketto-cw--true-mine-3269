@@ -580,7 +580,6 @@ const Homepage = () => {
           </ButtonGroup>
         </Box>
       </Flex>
-      <Footer />
     </div>
   );
 };
