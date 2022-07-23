@@ -6,7 +6,7 @@ export const registersuccess=()=>{
     }
 }
 export const Register=(data)=>(dispatch)=>{
-    // console.log(data)
+     
     axios.post("https://reqres.in/api/register",data).then((res)=>{
         dispatch(registersuccess(res.data))
     }).catch((err)=>{

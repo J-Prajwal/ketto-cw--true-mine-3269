@@ -28,9 +28,13 @@ import { loadData } from "../utils/localStorage";
 import { Logout } from "../Redux/AuthReducer/auth.actions";
 
 const Header = () => {
+  const menubuttonclick=()=>{
+     console.log("btn clicked")
+    navigate("new/crowdfunding/type=medical");
+  }
 const token=useSelector((state)=>state.AuthReducer.token)
 const isAuth=useSelector((state)=>state.AuthReducer.isAuth)
-  const [status,seStatus]=useState(false)
+const [status,seStatus]=useState(false)
   const dispatch=useDispatch()
   useEffect(()=>{
     if(token){
@@ -76,11 +80,9 @@ const isAuth=useSelector((state)=>state.AuthReducer.isAuth)
             <MenuList>
               <MenuItem
                 _hover={{ color: "#30C9C8" }}
-                onClick={() => {
-                  navigate("new/crowdfunding/type=medical");
-                }}
+                onClick={menubuttonclick}
               >
-                Medical Treatment
+               Medical Treatment
               </MenuItem>
               <MenuItem
                 _hover={{ color: "#30C9C8" }}
