@@ -18,7 +18,7 @@ import { Pagination, Navigation } from "swiper";
 const BCrausel = () => {
   return (
           
-    <>
+    <div style={{marginTop: "3rem"}}>
    
     <Swiper
       slidesPerView={3}
@@ -44,7 +44,7 @@ const BCrausel = () => {
       <SwiperSlide><img src="https://i.postimg.cc/wj8SvKBR/4.png"/></SwiperSlide>
      
     </Swiper>
-  </>
+  </div>
  
   )
 }
