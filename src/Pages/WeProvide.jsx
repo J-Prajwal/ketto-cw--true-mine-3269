@@ -267,7 +267,7 @@ const WeProvide = () => {
    START A FUNDRAISER
   </Button>
   <Button color={"#30C9C8"} backgroundColor={"white"} padding={"25"} border={"1px solid #30C9C8 "}>
-    BROWSW FUNDRAISER
+    BROWSE FUNDRAISER
   </Button>
 </HStack>
 
