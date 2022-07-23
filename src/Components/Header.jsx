@@ -62,6 +62,7 @@ const [status,seStatus]=useState(false)
             src="https://ketto.gumlet.io/assets/images/logo-light-bg.svg?w=70&dpr=1.0"
           />
           <Link
+           syle={{ color:"black"}}
             to="/crowdfunding/fundraisers/"
             _hover={{ textDecoration: "none" }}
           >
@@ -102,7 +103,7 @@ const [status,seStatus]=useState(false)
               </MenuItem>
             </MenuList>
           </Menu>
-          <Link to="/crowdfunding" _hover={{ textDecoration: "none" }}>
+          <Link syle={{ color:"black"}}to="/crowdfunding" _hover={{ textDecoration: "none" }}>
             How It Works
           </Link>
           <Text> | </Text>
