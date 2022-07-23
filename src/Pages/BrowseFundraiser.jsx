@@ -34,7 +34,7 @@ const BrowseFundraiser = () => {
   const dispatch = useDispatch();
   const funds = useSelector((state) => state.AppReducer.funds);
   const isLoading = useSelector((state) => state.AppReducer.isLoading);
-
+ 
   const loadingState = useSelector((state) => state.AppReducer.loadingState);
 
   const handlepagination = () => {
@@ -52,6 +52,7 @@ const BrowseFundraiser = () => {
   };
   useEffect(() => {
     dispatch(getdata(filter, location, limit));
+    
     // setloadingstate(true)
     dispatch(changeloadin(true));
   }, [filter, location, limit]);
@@ -65,7 +66,7 @@ const BrowseFundraiser = () => {
     } else {
       let newlistofsuggestions = funds
         ?.filter((item) =>
-          item.title.toLowerCase().indexOf(searchinpage) !== -1 ? true : false
+          item.title?.toLowerCase().indexOf(searchinpage) !== -1 ? true : false
         )
         .map((item) => item);
 
@@ -236,7 +237,7 @@ const BrowseFundraiser = () => {
               {funds?.map((el) => {
                 return (
                   <GridItem key={el.id}>
-                    <BrowserFundingCard {...el} />
+                    <BrowserFundingCard key={el.id} {...el} />
                   </GridItem>
                 );
               })}
@@ -293,7 +294,7 @@ const BrowseFundraiser = () => {
           </HStack>
         </Box>
 
-        {/* // pagination starts here */}
+        {/* // pagination ends here */}
 
         {/* </HStack> */}
       </Container>

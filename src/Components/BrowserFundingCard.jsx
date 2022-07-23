@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import {
   Box,
   HStack,
@@ -19,14 +19,10 @@ export const BrowserFundingCard = ({
   raisedBy,
   raised,
 }) => {
-  let temp = raised.split(",").join("");
-  temp = temp.split(" ");
-  let tempraised = +temp[1];
-  let tempgoal = goal.split(",").join("");
-  tempgoal = tempgoal.split(" ");
-  tempgoal = +goal[1];
+  
+ 
 
-  let paramtitle = title.split(" ").join("");
+  let paramtitle = title?.split(" ").join("");
   const navigate = useNavigate();
 
   // pagination
@@ -58,9 +54,7 @@ export const BrowserFundingCard = ({
         <Box margin="auto" textAlign="center">
           <Slider
             width="80%"
-            defaultValue={tempraised}
-            min={tempraised}
-            max={tempgoal}
+             
           >
             <SliderTrack bg="#30C9C8.100">
               <Box position="relative" right={10} />

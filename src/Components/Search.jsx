@@ -34,7 +34,7 @@ const Search = () => {
         if(!value){
             setSuggestion([])
         }else{
-            let newlistofsuggestions = data?.filter((item)=> item.title.toLowerCase().indexOf(value)!==-1?true:false).map((item)=>item);
+            let newlistofsuggestions = data?.filter((item)=> item.title?.toLowerCase().indexOf(value)!==-1?true:false).map((item)=>item);
         
             setSuggestion(newlistofsuggestions)
         }
