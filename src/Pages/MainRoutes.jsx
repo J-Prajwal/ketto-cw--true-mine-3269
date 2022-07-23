@@ -20,7 +20,7 @@ const MainRoutes = () => {
         path="/"
         element={
           <>
-            <Header />
+            {/* <Header /> */}
             <Homepage />
           </>
         }
