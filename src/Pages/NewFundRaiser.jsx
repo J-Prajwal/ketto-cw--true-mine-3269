@@ -1,208 +1,194 @@
+import { CheckIcon, ChevronDownIcon } from "@chakra-ui/icons";
 import {
-  IconButton,
-  Input,
-  Stack,
-  MdPhone,
   Box,
-  Text,
+  Button,
+  Container,
+  Divider,
+  Flex,
+  Heading,
+  Input,
+  InputGroup,
+  InputLeftAddon,
+  InputLeftElement,
+  InputRightElement,
   Menu,
   MenuButton,
-  MenuList,
-  Button,
   MenuItem,
-  Flex,
+  MenuList,
   Select,
-  Container,
+  Text,
 } from "@chakra-ui/react";
-import { navigate } from "react-dom";
-import { ChevronDownIcon, PhoneIcon, ViewOffIcon } from "@chakra-ui/icons";
-
-import { BiEnvelope } from "react-icons/bi";
-import { BsFillPersonFill } from "react-icons/bs";
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import NewFundRaiser2 from "./NewFundRaiser2";
+import { Link } from "react-router-dom";
 
 const NewFundRaiser = () => {
-  const [menu, setMenu] = useState("English");
+  const [language, setLanguage] = useState("English");
+  const [formType, setFormType] = useState("Medical Treatment");
+  const [userData, setUserData] = useState([{}]);
 
-  const handleSubmit = () => {
-    console.log("Yes clicked");
+  const formHandler = (value, name) => {
+    setUserData((values) => ({ ...values, [name]: value }));
   };
+  console.log(userData);
   return (
-    <Box bg="#3d3d3d" w={"100%"} h={"741px"}>
-      <br />
-      <Container ml="518px">
-        <Menu bg="white">
-          <MenuButton
-            outline={"none"}
-            border={""}
-            bg={"white"}
-            as={Button}
-            rightIcon={<ChevronDownIcon />}
-            // rightIcon={<BiEnvelope />}
-          >
-            {menu}
+    <Box bgColor={"gray"}>
+      <Container mt={"5"} mb={"5"}>
+        <Menu bgColor={"gray"}>
+          <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+            {language}
           </MenuButton>
-          <MenuList
-            onChange={(e) => {
-              setMenu(e.target.value);
-            }}
-            mt={"-10"}
-            borderRadius={"15px"}
-            width={"200px"}
-          >
+          <MenuList mt={"-10"}>
             <MenuItem
-              onClick={(e) => {
-                setMenu(e.target.value);
-              }}
-              value={"English"}
-              borderRadius={"15px 15px 0px 0px"}
-            >
-              English
-            </MenuItem>
-            <MenuItem
-              onClick={(e) => {
-                setMenu(e.target.value);
-              }}
-              value={"Hindi"}
+              onChange={(e) => setLanguage(e.target.value)}
+              value="Hindi"
             >
               Hindi
             </MenuItem>
             <MenuItem
-              onClick={(e) => {
-                setMenu(e.target.value);
-              }}
-              value={"Tamil"}
+              onChange={(e) => setLanguage(e.target.value)}
+              value="English"
+            >
+              English
+            </MenuItem>
+            <MenuItem
+              onChange={(e) => setLanguage(e.target.value)}
+              value="Tamil"
             >
               Tamil
             </MenuItem>
             <MenuItem
-              onClick={(e) => {
-                setMenu(e.target.value);
-              }}
-              value={"Bengali"}
-              borderRadius={"0px 0px 15px 15px"}
+              onChange={(e) => setLanguage(e.target.value)}
+              value="Kannada"
             >
-              Bengali
+              Kannada
             </MenuItem>
           </MenuList>
         </Menu>
       </Container>
-      <br />
       <Box
-        w="500px"
-        p="15px"
-        paddingTop={"30px"}
-        border={"2px solid green"}
-        m={"0px 20px 0px 530px"}
-        bg="white"
-        borderRadius="10px 10px 0px 0px"
+        as={Flex}
+        bgColor={"white"}
+        justifyContent={"center"}
+        flexDirection={"column"}
+        borderRadius={"xl"}
+        width={"36%"}
+        m={"auto"}
       >
-        <Text
-          fontSize="16px"
-          color="black"
-          fontWeight="bold"
-          fontFamily="Helvetica"
-          textAlign={"center"}
-        >
-          Start your fund Raiser
-        </Text>{" "}
-        <hr />
-        <br />
+        <Box p={3}>
+          <Heading size={"sm"} textAlign={"center"}>
+            Start your fundraiser
+          </Heading>
+        </Box>
+        <Divider />
         <Box
-          m="auto"
-          borderRadius="25px"
-          backgroundColor="whitesmoke"
-          padding={"0px"}
-          display="flex"
-          w="90%"
-          justifyContent={"space-around"}
+          as={Flex}
+          flexDirection={"row"}
+          w={"90%"}
+          bgColor={"gray.100"}
+          margin={"auto"}
+          mt={"3"}
+          borderRadius={"xl"}
+          alignItems={"center"}
+          justifyContent={"center"}
         >
-          {" "}
-          <Text ml={"35px"} lineHeight={"45px"}>
-            Purpose of raising funds{" "}
-          </Text>{" "}
-          <Menu ml="80px">
+          <Text size={"xs"}>Purpose of raising funds</Text>
+          <Menu>
             <MenuButton
-              outline={"none"}
-              border={"none"}
-              bg={"transparent"}
               as={Button}
               rightIcon={<ChevronDownIcon />}
-              // rightIcon={<BiEnvelope />}
+              variant={"flushed"}
+              size={"sm"}
             >
-              Medical Treatment
+              {formType}
             </MenuButton>
-            <MenuList mt={"-10"} borderRadius={"15px"} width={"200px"}>
-              <MenuItem borderRadius={"15px 15px 0px 0px"}>Download</MenuItem>
-              <MenuItem>Create a Copy</MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem borderRadius={"0px 0px 15px 15px"}>Delete</MenuItem>
+            <MenuList mt={"-10"} width={"3"}>
+              <MenuItem
+                _hover={{ color: "#01bfbd" }}
+                value={"Medical Treatment"}
+              >
+                Medical Treatment
+              </MenuItem>
+              <MenuItem _hover={{ color: "#01bfbd" }} value={"NGO / Charity"}>
+                NGO / Charity
+              </MenuItem>
+              <MenuItem _hover={{ color: "#01bfbd" }} value={"Other Cause"}>
+                Other Cause
+              </MenuItem>
             </MenuList>
           </Menu>
         </Box>
-        <br />
-        <Stack spacing={3} alignItems="center">
-          <Flex w="90%">
-            <Input variant="flushed" placeholder="Name" />
-            <BsFillPersonFill />
-          </Flex>
-
-          <br />
-          <Flex w="90%">
-            <Input variant="flushed" placeholder="Emil Address" />
-            <BiEnvelope />
-          </Flex>
-          <br />
-          <Flex w="90%">
-            <Input variant="flushed" placeholder="Create a Password" />
-            <ViewOffIcon />
-          </Flex>
-
-          <br />
-          <Flex w="90%">
-            <Input variant="flushed" placeholder="Mobile" />
-            <PhoneIcon />
-          </Flex>
-          <br />
-          <br />
-          <br />
-
-          <br />
-          <br />
-          <box display="flex">
-            <Text
-              display="inline"
-              fontSize="14px"
-              color="#454545"
-              fontFamily="sans-serif"
-            >
-              Already have an account?
-            </Text>{" "}
-            <Text
-              display="inline"
-              fontSize="14px"
-              color="teal.500"
-              fontFamily="sans-serif"
-            >
-              Login
-            </Text>
-          </box>
-        </Stack>
-      </Box>
-      <Box
-        ml={"531px"}
-        bgColor={"rgb(1,191,189)"}
-        borderRadius={"0px 0px 10px 10px"}
-        h="55px"
-        w="499px"
-        fontFamily={"sans-serif"}
-        textAlign={"center"}
-        lineHeight={"55px"}
-        onClick={() => handleSubmit()}
-      >
-        Next{" "}
+        <Box
+          as={Flex}
+          flexDirection={"column"}
+          gap={"5"}
+          w={"90%"}
+          margin={"auto"}
+          mt={"5"}
+        >
+          <InputGroup>
+            <Input
+              variant={"flushed"}
+              placeholder="Name"
+              name="raisedBy"
+              onChange={(e) => formHandler(e.target.value, e.target.name)}
+            />
+            <InputRightElement children={<CheckIcon color="green.500" />} />
+          </InputGroup>
+          <InputGroup>
+            <Input
+              variant={"flushed"}
+              placeholder="Email Address"
+              name={"email"}
+              onChange={(e) => formHandler(e.target.value, e.target.name)}
+            />
+            <InputRightElement children={<CheckIcon color="green.500" />} />
+          </InputGroup>
+          <InputGroup>
+            <Input
+              variant={"flushed"}
+              type={"password"}
+              placeholder="Create a password"
+              name={"password"}
+              onChange={(e) => formHandler(e.target.value, e.target.name)}
+            />
+            <InputRightElement children={<CheckIcon color="green.500" />} />
+          </InputGroup>
+          <InputGroup>
+            <InputLeftElement
+              children={
+                <Text fontSize={"xs"}>
+                  +91
+                  <ChevronDownIcon />
+                </Text>
+              }
+            />
+            <Divider orientation="landscape"></Divider>
+            <Input
+              variant={"flushed"}
+              placeholder="Mobile"
+              name={"mobile"}
+              onChange={(e) => formHandler(e.target.value, e.target.name)}
+            />
+            <InputRightElement children={<CheckIcon color="green.500" />} />
+          </InputGroup>
+        </Box>
+        <Box mt={"40"}>
+          <Text textAlign={"center"} fontSize={"sm"}>
+            Already have an account? <Link to={"#"}>Login</Link>{" "}
+          </Text>
+        </Box>
+        <Divider></Divider>
+        <Box>
+          <Button
+            colorScheme={"none"}
+            borderRadius={"0px 0px 10px 10px"}
+            bgColor={"#01bfbd"}
+            w={"100%"}
+            color={"white"}
+          >
+            Next
+          </Button>
+        </Box>
       </Box>
     </Box>
   );
