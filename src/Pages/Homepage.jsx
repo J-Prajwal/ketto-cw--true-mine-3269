@@ -32,6 +32,7 @@ import SuccessStories from "../Components/SuccessStories";
 import FeaturedIn from "../Components/FeaturedIn";
 import { Link } from "react-router-dom";
 import Footer from "../Components/Footer";
+import SupprortChatBox from "../Components/SupprortChatBox";
 // import "../Assets/Images/industry.png";
 
 const Homepage = () => {

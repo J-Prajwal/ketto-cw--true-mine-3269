@@ -18,6 +18,7 @@ import {
 } from "@chakra-ui/react";
 import { FaDashcube } from "react-icons/fa";
 import {BsDash} from "react-icons/bs";
+import BCrausel from "./BCrausel";
 
 const WeProvide = () => {
   return (
@@ -190,9 +191,11 @@ const WeProvide = () => {
         </Button>
       </HStack>
 
+      <BCrausel />
+
       {/* ------------------------------faq--------------------------------------------------- */}
 
-      <Accordion allowToggle>
+      <Accordion allowToggle mt={"10"}>
         <h1
           style={{ fontSize: "20px", fontWeight: "bold", marginLeft: "2rem" }}
         >
