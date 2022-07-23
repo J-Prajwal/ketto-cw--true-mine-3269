@@ -4,7 +4,12 @@ const initialState = {
   funds: [],
   isLoading: false,
   isError: false,
-  loadingState:false
+  loadingState:false,
+
+
+  addingdatasuccess:false,
+  addingdatafailed:false,
+  addingdatarequest:false
 };
 
 export const reducer = (state = initialState, { type, payload }) => {
@@ -35,6 +40,27 @@ export const reducer = (state = initialState, { type, payload }) => {
         ...state,
         isLoading: false,
         isError: true,
+      };
+    }
+    case types.POST_DATA_REQUEST: {
+      return {
+        ...state,
+         addingdatarequest:true
+      };
+    }
+    case types.POST_DATA_SUCCESS: {
+      return {
+        ...state,
+         addingdatarequest:false,
+         addingdatasuccess:true
+      };
+    }
+    case types.POST_DATA_FAILURE: {
+      return {
+        ...state,
+         addingdatarequest:false,
+         addingdatasuccess:false,
+         addingdatafailed:true
       };
     }
     default:
