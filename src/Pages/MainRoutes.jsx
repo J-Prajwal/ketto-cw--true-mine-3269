@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Header from "../Components/Header";
 import RequiredAuth from "../hoc/RequiredAuth";
 import BrowseFundraiser from "./BrowseFundraiser";
 import { FundraiserDetail } from "./FundraiserDetail";
@@ -13,7 +14,15 @@ import NewFundRaiser3 from "./NewFundRaiser3";
 const MainRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Homepage />}></Route>
+      <Route
+        path="/"
+        element={
+          <>
+            <Header />
+            <Homepage />
+          </>
+        }
+      ></Route>
       <Route
         path="/crowdfunding/fundraisers/"
         element={<BrowseFundraiser />}
@@ -22,11 +31,14 @@ const MainRoutes = () => {
         path="/new/crowdfunding/type=:cat"
         element={
           // <RequiredAuth>
-          <NewFundRaiser3 />
+          <NewFundRaiser2 />
           // </RequiredAuth>
         }
       ></Route>
-      <Route path="/crowdfunding/fundraisers/:name" element={<FundraiserDetail/>}></Route>
+      <Route
+        path="/crowdfunding/fundraisers/:name"
+        element={<FundraiserDetail />}
+      ></Route>
       <Route path="/crowdfunding" element={<HowItWorks />}></Route>
       
     </Routes>
