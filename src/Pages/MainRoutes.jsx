@@ -12,28 +12,15 @@ import HowItWorks from "./HowItWorks";
 import NewFundRaiser2 from "./NewFundRaiser2";
 import NewFundRaiser3 from "./NewFundRaiser3";
 import NewCampaign from "./NewCampaign";
+import { Heading } from "@chakra-ui/react";
 
 const MainRoutes = () => {
   return (
     <Routes>
-      <Route
-        path="/"
-        element={
-          <>
-            {/* <Header /> */}
-            <Homepage />
-          </>
-        }
-      ></Route>
+      <Route path="/" element={<Homepage />}></Route>
       <Route
         path="/crowdfunding/fundraisers/"
-        element={
-          <>
-            <Header />
-            <BrowseFundraiser />
-            <Footer />
-          </>
-        }
+        element={<BrowseFundraiser />}
       ></Route>
       <Route
         path="/new/crowdfunding/type=:cat"
@@ -45,24 +32,13 @@ const MainRoutes = () => {
       ></Route>
       <Route
         path="/crowdfunding/fundraisers/:name"
-        element={
-          <>
-            <Header />
-            <FundraiserDetail />
-            <Footer />
-          </>
-        }
+        element={<FundraiserDetail />}
       ></Route>
       <Route path="/crowdfunding" element={<HowItWorks />}></Route>
+      <Route path="/campaign_created" element={<NewCampaign />}></Route>
       <Route
-        path="/campaign_created"
-        element={
-          <>
-            <Header />
-            <NewCampaign />
-            <Footer />
-          </>
-        }
+        path="/protected_page"
+        element={<Heading>Please Login to Continue</Heading>}
       ></Route>
     </Routes>
   );
