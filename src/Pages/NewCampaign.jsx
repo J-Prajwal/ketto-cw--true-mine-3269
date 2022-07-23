@@ -12,8 +12,13 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { FaFacebookSquare, FaWhatsapp } from "react-icons/fa";
+import { useNavigate, useParams } from "react-router-dom";
 
 const NewCampaign = () => {
+  const navigate=useNavigate()
+  const {name}=useParams()
+  let paramtitle = name.split(" ").join("");
+  
   return (
     <div>
       <Container
@@ -47,6 +52,7 @@ const NewCampaign = () => {
             m={"auto"}
             mt={"5"}
             mb={"5"}
+            onClick={()=>navigate(`/crowdfunding/fundraisers/${paramtitle}`)}
           >
             Visit Dashboard
           </Button>

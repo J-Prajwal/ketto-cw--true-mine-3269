@@ -32,16 +32,20 @@ import { BiEnvelope } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
 import React, { useEffect, useState } from "react";
 import { FaFlagUsa, FaSmileBeam } from "react-icons/fa";
-import { useParams } from "react-router-dom";
-import { Page2 } from "./NewFundingPage2";
-import { Page3 } from "./NewFundigPage3";
+import { useNavigate, useParams } from "react-router-dom";
+import { MdSendToMobile } from "react-icons/md";
+import { postdata } from "../Redux/AppReducer/app.actions";
+import { useDispatch } from "react-redux";
+ 
 // import { Recaptcha } from "../Components/Recaptcha";
-const handleSubmitData = () => {
-  console.log("data is here");
-};
+
 const NewFundRaiser2 = () => {
+  const navigate=useNavigate()
   const [name, setname] = useState("Fundraiser");
+  const [gotkitto,setgotkitto]=useState("How you first heard about ketto?")
   const [menu, setMenu] = useState("English");
+  const [mobile,setmobile]=useState(91 )
+  const dispatch=useDispatch()
   const [pages, setPages] = useState({
     medical: false,
     NGO: false,
@@ -55,10 +59,43 @@ const NewFundRaiser2 = () => {
   });
 
   const handlepages = (x) => {
-    console.log(x);
+     
     setPageNumber(x);
   };
 
+  const [data,setdata]=useState({
+    "id": 1,
+    "raisedBy": "The patient is my..",
+    "category": "medical",
+    "location": "Mumbai",
+    "title": "",
+    "mainImg": "https://savioursfoundation.org/wp-content/uploads/2021/02/ngo.jpg",
+    "goal": "₹ 0",
+    "raised": "₹ 0",
+    "daysLeft": Math.floor(Math.random() * (100 - 10 + 1) + 10),
+    "supporters": Math.floor(Math.random() * (1000 - 10 + 1) + 10),
+    "about": [
+      {
+        "desc": [
+          "`Hi ,My name is ${name} and I am raising funds for my grandmother, Manju singh who is suffering from Liver cancer adults and is undergoing treatment at AIIMS Hospital, New Delhi . The family has done all it can to collect the total amount required for the treatment but Rs.6000 more is required to pay for all the medical expenses. As the amount required is huge, I request you to kindly contribute towards the treatment and help during this time of need. Each contribution is important!",
+           "Please help us raise this amount by clicking on the donate button and sharing this page with your friends and family." ,
+          "What my son has been going through for years is awful. But we have had the opportunity to at least seek treatment for him. We understand thousands of little children are going through exactly the same, and possibly worse, than Abir. Hence, all contributions after funding the treatment cost will be used to fund cancer research and to launch a digital platform to support and empower Indian families and children suffering from cancer by bringing together 1000s of survivors, cancer doctors and experts, insurance companies, and a network of supporters to create a resilient ecosystem to beat cancer together."
+        ],
+        "images": [
+          "https://miro.medium.com/max/1200/1*ZxpUxJqfs-LMzS788u2a0w.jpeg",
+          "https://www.gannett-cdn.com/-mm-/d3b6dffaeec46acd6996b0f8d5e950f095216e0b/c=0-125-2045-1280/local/-/media/2018/06/12/USATODAY/USATODAY/636643942202141206-GettyImages-515836063.jpg"
+        ]
+      }
+    ]
+  })
+  const handleSubmitData = () => {
+    console.log("data is here");
+    dispatch(postdata(data)).then(()=>{
+      navigate(`/campaign_created/${data.title}`)
+    }).catch((err)=>{
+      alert("Something went wrong")
+    })
+  };
   useEffect(() => {
     if (cat == "medical") {
       setPages({ medical: true, NGO: false, other: false });
@@ -74,9 +111,7 @@ const NewFundRaiser2 = () => {
     }
   }, []);
 
-  const handleSubmit = () => {
-    console.log();
-  };
+ 
   return (
     <Container
       overflowY="scroll"
@@ -180,8 +215,10 @@ const NewFundRaiser2 = () => {
                   <Container maxW="container.md">
                     <InputGroup>
                       <Input
+                      type="number"
+                        onChange={(e)=>setdata({...data,goal:e.target.value})}
                         variant="flushed"
-                        placeholder="How much do you want to raise"
+                        placeholder="How much do you want to raise" value={data.goal}
                       />
                       <Image w="20px" h="20px" src={qmark}></Image>
                     </InputGroup>
@@ -202,7 +239,7 @@ const NewFundRaiser2 = () => {
                         rightIcon={<ChevronDownIcon />}
                       >
                         <Text textAlign="left" color="grey" fontWeight={400}>
-                          The patient is my..
+                          {data.raisedBy}
                         </Text>
                       </MenuButton>
                       <Container maxW="container.md" background="white">
@@ -212,45 +249,45 @@ const NewFundRaiser2 = () => {
                           height="30vh"
                           width="30vw"
                         >
-                          <MenuItem>Friend</MenuItem>
+                          <MenuItem onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Friend</MenuItem>
                           <MenuList>
                             <MenuGroup title="Parent">
-                              <MenuItem>Father</MenuItem>
-                              <MenuItem>Mother</MenuItem>
-                              <MenuItem>Grand Father</MenuItem>
-                              <MenuItem>Grand Mother</MenuItem>
+                              <MenuItem value="Father"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Father</MenuItem>
+                              <MenuItem value="Mother"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Mother</MenuItem>
+                              <MenuItem value="Grand Father"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Grand Father</MenuItem>
+                              <MenuItem value="Grand Mother"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Grand Mother</MenuItem>
                             </MenuGroup>
                             <MenuDivider />
                             <MenuGroup title="Spouse">
-                              <MenuItem>Husband</MenuItem>
-                              <MenuItem>Wife</MenuItem>
+                              <MenuItem value="Husband"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Husband</MenuItem>
+                              <MenuItem value="Wife"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Wife</MenuItem>
                             </MenuGroup>
                             <MenuDivider />
                             <MenuGroup title="Child">
-                              <MenuItem>Son</MenuItem>
-                              <MenuItem>Daughter</MenuItem>
-                              <MenuItem>Twins</MenuItem>
-                              <MenuItem>Grandson</MenuItem>
-                              <MenuItem>Granddaughter</MenuItem>
+                              <MenuItem value="Son"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Son</MenuItem>
+                              <MenuItem value="Daughter"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Daughter</MenuItem>
+                              <MenuItem value="Twins"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Twins</MenuItem>
+                              <MenuItem value="Grandson"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Grandson</MenuItem>
+                              <MenuItem value="Granddaughter"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Granddaughter</MenuItem>
                             </MenuGroup>
                             <MenuDivider />
                             <MenuGroup title="Sibling">
-                              <MenuItem>Brother</MenuItem>
-                              <MenuItem>Sister</MenuItem>
+                              <MenuItem value="Brother"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Brother</MenuItem>
+                              <MenuItem value="Sister"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Sister</MenuItem>
                             </MenuGroup>
                             <MenuDivider />
                             <MenuGroup title="Others">
-                              <MenuItem>Friend</MenuItem>
-                              <MenuItem>Friend's Family</MenuItem>
-                              <MenuItem>Cousin</MenuItem>
-                              <MenuItem>Uncle</MenuItem>
-                              <MenuItem>Aunt</MenuItem>
-                              <MenuItem>Nephew</MenuItem>
-                              <MenuItem>Niece</MenuItem>
-                              <MenuItem>Colleague</MenuItem>
-                              <MenuItem>Relative</MenuItem>
-                              <MenuItem>Legal Ward</MenuItem>
-                              <MenuItem>Other</MenuItem>
+                              <MenuItem value="Friend"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Friend</MenuItem>
+                              <MenuItem value="Friend's Family"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Friend's Family</MenuItem>
+                              <MenuItem value="Cousin"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Cousin</MenuItem>
+                              <MenuItem value="Uncle"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Uncle</MenuItem>
+                              <MenuItem value="Aunt"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Aunt</MenuItem>
+                              <MenuItem value="Nephew"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Nephew</MenuItem>
+                              <MenuItem value="Niece"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Niece</MenuItem>
+                              <MenuItem value="Colleague"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Colleague</MenuItem>
+                              <MenuItem value="Relative"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Relative</MenuItem>
+                              <MenuItem value="Legal Ward"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Legal Ward</MenuItem>
+                              <MenuItem value="Other"onClick={(e)=>setdata({...data,raisedBy:e.target.value})}>Other</MenuItem>
                             </MenuGroup>
                           </MenuList>
                         </MenuList>
@@ -265,13 +302,16 @@ const NewFundRaiser2 = () => {
                       variant="flushed"
                       outline="#30C9C8"
                       placeholder="Your Mobile Number"
+                      type="number"
+                      value={mobile}
+                      onChange={(e)=>setmobile(e.target.value)}
                     />
                   </InputGroup>
 
                   <Menu>
                     <MenuButton
                       width="100%"
-                      value="What will be the funds used for?"
+                       
                       borderRadius="none"
                       borderBottom="1px solid lightgrey"
                       variant="flused"
@@ -279,7 +319,7 @@ const NewFundRaiser2 = () => {
                       rightIcon={<ChevronDownIcon />}
                     >
                       <Text textAlign="left" color="grey" fontWeight={400}>
-                        How you first heard about ketto?
+                        {gotkitto}
                       </Text>
                     </MenuButton>
                     <Container maxW="container.md">
@@ -289,28 +329,28 @@ const NewFundRaiser2 = () => {
                         width="32vw"
                         direction="rtl"
                       >
-                        <MenuItem value="Cancer Treatment">
+                        <MenuItem  onClick={(e)=>setgotkitto(e.target.value)}value="Search Engine (Google,Yahoo,etc)" >
                           Search Engine (Google,Yahoo,etc)
                         </MenuItem>
-                        <MenuItem value="Accident treatment">
+                        <MenuItem onClick={(e)=>setgotkitto(e.target.value)} value="Facebook, Instagram Ad/Post" >
                           Facebook, Instagram Ad/Post
                         </MenuItem>
-                        <MenuItem value="Liver / Kidney transplant">
+                        <MenuItem onClick={(e)=>setgotkitto(e.target.value)} value="Twitter Ad / Post">
                           Twitter Ad / Post
                         </MenuItem>
-                        <MenuItem value="Heart operation">
+                        <MenuItem onClick={(e)=>setgotkitto(e.target.value)} value="YouTube Ad / Post">
                           YouTube Ad / Post
                         </MenuItem>
-                        <MenuItem value="Pre-mature baby care (NICU)">
+                        <MenuItem onClick={(e)=>setgotkitto(e.target.value)} value="Brochure / Banner in Hospital">
                           Brochure / Banner in Hospital
                         </MenuItem>
-                        <MenuItem value="Medicines (Ongoing treatment)">
+                        <MenuItem onClick={(e)=>setgotkitto(e.target.value)}value=" Recommended by Doctor" >
                           Recommended by Doctor
                         </MenuItem>
-                        <MenuItem value="Memorial (Patient expired)">
+                        <MenuItem  onClick={(e)=>setgotkitto(e.target.value)}value="Recommended by hospital Staff Member">
                           Recommended by hospital Staff Member
                         </MenuItem>
-                        <MenuItem value="others">others</MenuItem>
+                        <MenuItem onClick={(e)=>setgotkitto(e.target.value)}value="others">others</MenuItem>
                       </MenuList>
                     </Container>
                   </Menu>
@@ -377,9 +417,22 @@ const NewFundRaiser2 = () => {
                 </Flex>
                 <br />
                 <Stack borderRadius={10} spacing={5} alignItems="center">
+                <Container maxW="container.md">
+                    <InputGroup>
+                      <Input
+                      value={data.title}
+                       onChange={(e)=>setdata({...data,title:e.target.value})}
+                        variant="flushed"
+                        placeholder="Title for the fundraiser"
+                      />
+                      <Image w="20px" h="20px" src={qmark}></Image>
+                    </InputGroup>
+                  </Container>
                   <Container maxW="container.md">
                     <InputGroup>
                       <Input
+                      value={data.name}
+                       onChange={(e)=>setname(e.target.value)}
                         variant="flushed"
                         placeholder="Full name of patient"
                       />
@@ -388,7 +441,8 @@ const NewFundRaiser2 = () => {
                   </Container>
                   <Container maxW="container.md">
                     <InputGroup>
-                      <Input
+                      <Input 
+
                         variant="flushed"
                         placeholder="Age of the patient"
                       />
@@ -467,6 +521,8 @@ const NewFundRaiser2 = () => {
                     <InputGroup style={{ zIndex: 0 }}>
                       <Input
                         variant="flushed"
+                        value={data.location}
+                        onChange={(e)=>setdata({...data,location:e.target.value})}
                         outline="#30C9C8"
                         placeholder="Enter your city"
                       />
@@ -506,6 +562,7 @@ const NewFundRaiser2 = () => {
                     backgroundColor="#F5F5F5"
                     variant="flushed"
                     size="md"
+                    
                     height="40vh"
                     value={`Hi ,My name is ${name} and I am raising funds for my grandmother, Manju singh who is suffering from Liver cancer adults and is undergoing treatment at AIIMS Hospital, New Delhi . The family has done all it can to collect the total amount required for the treatment but Rs.6000 more is required to pay for all the medical expenses.
 
