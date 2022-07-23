@@ -8,6 +8,7 @@ export const BrowserFundingCard = ({mainImg,title,goal,daysLeft,supporters,raise
   let  tempgoal=goal.split(",").join("")
     tempgoal=tempgoal.split(" ")
     tempgoal=+goal[1]
+    
     let paramtitle=title.split(" ").join("")
    const navigate=useNavigate()
 

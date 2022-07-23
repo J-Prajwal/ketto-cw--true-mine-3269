@@ -1,8 +1,9 @@
+import { loadData } from "../../utils/localStorage";
 import { LOGIN_ERROR, LOGIN_LOADING, LOGIN_SUCCESS, LOGOUT } from "./auth.actionTypes";
 
 const initialState = {
   isAuth: false,
-  token: "",
+  token:loadData("key")||"",
   isLoading: false,
   isError: false,
 };
@@ -19,7 +20,7 @@ export const reducer = (state = initialState, { type, payload }) => {
       return {
         ...state,
         isAuth:true,
-        token:payload.token,
+        token:loadData("key"),
         isLoading:false,
         isError:false,
       }   

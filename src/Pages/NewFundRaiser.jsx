@@ -117,78 +117,68 @@ const NewFundRaiser = () => {
             </MenuList>
           </Menu>
         </Box>
-        <Box
-          as={Flex}
-          flexDirection={"column"}
-          gap={"5"}
-          w={"90%"}
-          margin={"auto"}
-          mt={"5"}
-        >
-          <InputGroup>
-            <Input
-              variant={"flushed"}
-              placeholder="Name"
-              name="raisedBy"
-              onChange={(e) => formHandler(e.target.value, e.target.name)}
-            />
-            <InputRightElement children={<CheckIcon color="green.500" />} />
-          </InputGroup>
-          <InputGroup>
-            <Input
-              variant={"flushed"}
-              placeholder="Email Address"
-              name={"email"}
-              onChange={(e) => formHandler(e.target.value, e.target.name)}
-            />
-            <InputRightElement children={<CheckIcon color="green.500" />} />
-          </InputGroup>
-          <InputGroup>
-            <Input
-              variant={"flushed"}
-              type={"password"}
-              placeholder="Create a password"
-              name={"password"}
-              onChange={(e) => formHandler(e.target.value, e.target.name)}
-            />
-            <InputRightElement children={<CheckIcon color="green.500" />} />
-          </InputGroup>
-          <InputGroup>
-            <InputLeftElement
-              children={
-                <Text fontSize={"xs"}>
-                  +91
-                  <ChevronDownIcon />
-                </Text>
-              }
-            />
-            <Divider orientation="landscape"></Divider>
-            <Input
-              variant={"flushed"}
-              placeholder="Mobile"
-              name={"mobile"}
-              onChange={(e) => formHandler(e.target.value, e.target.name)}
-            />
-            <InputRightElement children={<CheckIcon color="green.500" />} />
-          </InputGroup>
-        </Box>
-        <Box mt={"40"}>
-          <Text textAlign={"center"} fontSize={"sm"}>
-            Already have an account? <Link to={"#"}>Login</Link>{" "}
-          </Text>
-        </Box>
-        <Divider></Divider>
-        <Box>
-          <Button
-            colorScheme={"none"}
-            borderRadius={"0px 0px 10px 10px"}
-            bgColor={"#01bfbd"}
-            w={"100%"}
-            color={"white"}
-          >
-            Next
-          </Button>
-        </Box>
+        <br />
+        <Stack spacing={3} alignItems="center">
+          <Flex w="90%">
+            <Input variant="flushed" placeholder="Name" />
+            <BsFillPersonFill />
+          </Flex>
+
+          <br />
+          <Flex w="90%">
+            <Input variant="flushed" placeholder="Emil Address" />
+            <BiEnvelope />
+          </Flex>
+          <br />
+          <Flex w="90%">
+            <Input variant="flushed" placeholder="Create a Password" />
+            <ViewOffIcon />
+          </Flex>
+
+          <br />
+          <Flex w="90%">
+            <Input variant="flushed" placeholder="Mobile" />
+            <PhoneIcon />
+          </Flex>
+          <br />
+          <br />
+          <br />
+
+          <br />
+          <br />
+          <box display="flex">
+            <Text
+              display="inline"
+              fontSize="14px"
+              color="#454545"
+              fontFamily="sans-serif"
+            >
+              Already have an account?
+            </Text>{" "}
+            <Text
+              display="inline"
+              fontSize="14px"
+              color="teal"
+              fontFamily="sans-serif"
+            >
+              Login
+            </Text>
+          </box>
+        </Stack>
+      </Box>
+      <Box
+        ml={"531px"}
+        bgColor={"rgb(1,191,189)"}
+        borderRadius={"0px 0px 10px 10px"}
+        h="55px"
+        w="499px"
+        fontFamily={"sans-serif"}
+        textAlign={"center"}
+        lineHeight={"55px"}
+        cursor={"pointer"}
+        onClick={() => handleSubmit()}
+      >
+        Next{" "}
       </Box>
     </Box>
   );

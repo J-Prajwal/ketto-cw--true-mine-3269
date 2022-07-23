@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Modal,
   ModalOverlay,
@@ -11,32 +11,46 @@ import {
   FormControl,
   Input,
   Flex,
+  Box,
 } from "@chakra-ui/react";
- 
+ import {BsGoogle} from "react-icons/bs"
+ import {FcGoogle} from "react-icons/fc"
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import loginapi from "../Redux/AuthReducer/auth.actions";
+import loginapi from "../Redux/AuthReducer/auth.actions"; 
+import { Register } from "../Redux/Register/action";
 
 const Login = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [selectway, setway] = useState(false);
   const [otp, setotp] = useState(false);
   const [signup,setsignup] = useState(false)
+  const registered=useSelector((state)=>state.RegisterReducer.registersuccessfull)
   const dispatch = useDispatch()
-  const {isAuth,isLoading} = useSelector((state) => state.AuthReducer)
+ 
   const [loginuser,setloginuser] = useState({
-    email:"",
-    password:"",
+    email:"eve.holt@reqres.in",
+    password:"cityslicka",
   })
  
+  const [registerdata,setregisterdata]=useState({
+    email:"eve.holt@reqres.in",
+    password:"pistol",
+  })
   const handlelogin = () => {
     dispatch(loginapi(loginuser))
-     if(isAuth){
-      localStorage.setItem("user",JSON.stringify(loginuser))
-    }
   }
-  console.log(isAuth)
-
+ 
+useEffect(()=>{
+  if(registered){
+    setsignup(false)
+    setway(!selectway)
+  }
+  else{
+    setsignup(true)
+     
+  }
+},[registered])
 return (
     <>
       <Button
@@ -92,7 +106,7 @@ return (
                           data-cy="add-product-title"
                           placeholder="Mobile number"
                           name="title"
-                          maxLength={1}
+                          maxLength={10}
                           type={"number"}
                         />
                         {otp === true ? (
@@ -125,6 +139,7 @@ return (
                           data-cy="add-product-title"
                           placeholder="Email/Mobile number"
                           type={"email"}
+                          value={loginuser.email}
                           onChange={(e) => setloginuser({...loginuser,email:e.target.value})}
                           name="title"
                         />
@@ -134,6 +149,7 @@ return (
                           placeholder="Password"
                           maxLength={8}
                           type={"password"}
+                          value={loginuser.password}
                           onChange={(e) => setloginuser({...loginuser,password:e.target.value})}
                           name="title"
                         />
@@ -152,17 +168,20 @@ return (
                     )}
                     </div> :  <>
                         <Input
+                          
                           style={{ width: "100%", marginBottom: "5%" }}
                           data-cy="add-product-title"
                           placeholder="username"
-                          type={"text"}
+                          type={"email"}
                           name="title"
+                          
                         />
                         <Input
+                         value={registerdata.email}
                           style={{ width: "100%", marginBottom: "5%" }}
                           data-cy="add-product-title"
                           placeholder="Email"
-                          maxLength={8}
+                          onChange={(e)=>{setregisterdata({...registerdata,email:e.target.value})}}
                           type={"email"}
                           name="title"
                         />
@@ -172,6 +191,8 @@ return (
                           placeholder="Password"
                           maxLength={8}
                           type={"password"}
+                          value={registerdata.password}
+                          onChange={(e)=>{setregisterdata({...registerdata,password:e.target.value})}}
                           name="title"
                         />
                         <Button
@@ -180,7 +201,10 @@ return (
                             color: "white",
                             backgroundColor: "#01bfbd",
                           }}
-                          onClick={() => setotp(!otp)}
+                          onClick={() =>{
+                             dispatch(Register(registerdata))
+                             setregisterdata({email:"",password:""})
+                            } }
                           data-cy="add-product-submit-button"
                         >
                           Sign up
@@ -284,7 +308,7 @@ return (
                         marginTop:"100px"
                       }}
                     >
-                      <img
+                      {/* <img
                         style={{
                           cursor: "pointer",
                           width: "13%",
@@ -292,15 +316,19 @@ return (
                           margin: "2%",
                           
                         }}
-                        src="https://cdn-icons.flaticon.com/png/512/2504/premium/2504914.png?token=exp=1658299748~hmac=80727ac986a21a8da705c74f5c58ee1a"
+                        src="https://e7.pngegg.com/pngimages/337/722/png-clipart-google-search-google-account-google-s-google-play-google-company-text.png"
                         alt="img"
-                      />
+                      /> */}
+                      <Box p={2} background="white" >
+                        <FcGoogle fontSize={28} m={5} />
+                      </Box>
                      
                       <span
                         style={{
                           cursor: "pointer",
-                          margin: "5px 14% 0px 0%",
+                          margin: "5px 10% 0px 0",
                           color: "white",
+                          textAlign:"center"
                         }}
                       >
                          {signup === false ? "Sign in" : "Sign up"} with Google
