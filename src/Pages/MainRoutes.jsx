@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import RequiredAuth from "../hoc/RequiredAuth";
 import BrowseFundraiser from "./BrowseFundraiser";
@@ -7,9 +8,10 @@ import { FundraiserDetail } from "./FundraiserDetail";
 
 import Homepage from "./Homepage";
 import HowItWorks from "./HowItWorks";
- 
-import NewFundRaiser2  from "./NewFundRaiser2";
+
+import NewFundRaiser2 from "./NewFundRaiser2";
 import NewFundRaiser3 from "./NewFundRaiser3";
+import NewCampaign from "./NewCampaign";
 
 const MainRoutes = () => {
   return (
@@ -40,7 +42,16 @@ const MainRoutes = () => {
         element={<FundraiserDetail />}
       ></Route>
       <Route path="/crowdfunding" element={<HowItWorks />}></Route>
-      
+      <Route
+        path="/campaign_created"
+        element={
+          <>
+            <Header />
+            <NewCampaign />
+            <Footer />
+          </>
+        }
+      ></Route>
     </Routes>
   );
 };
