@@ -18,11 +18,11 @@ import {
 } from "@chakra-ui/react";
 import { FaDashcube } from "react-icons/fa";
 import {BsDash} from "react-icons/bs";
-import BCrausel from "./BCrausel";
 
 const WeProvide = () => {
   return (
     <div>
+      <Heading mt={"20"} mb={"10"} color={"#444444"} textAlign={"center"} size={"xl"}>We provide everything you need</Heading>
       <Grid
         templateColumns={["repeat(2, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)"]}
         gap={"5"}
@@ -191,7 +191,6 @@ const WeProvide = () => {
         </Button>
       </HStack>
 
-      <BCrausel />
 
       {/* ------------------------------faq--------------------------------------------------- */}
 

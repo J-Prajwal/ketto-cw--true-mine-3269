@@ -24,13 +24,10 @@ import {
   InputLeftElement,
   InputRightElement,
 } from "@chakra-ui/react";
-import { CheckIcon } from "@chakra-ui/icons";
-// import Carousel from './Carousal';
 import { ChevronDownIcon } from "@chakra-ui/icons/";
 import { FaFlagUsa } from "react-icons/fa";
 import { IoMdContact } from "react-icons/io";
 import { ImWhatsapp } from "react-icons/im";
-import BCrausel from "./BCrausel";
 
 const HowItWorks = () => {
   const [selectstate, setselectstate] = useState(
