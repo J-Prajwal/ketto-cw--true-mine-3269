@@ -27,7 +27,13 @@ const MainRoutes = () => {
       ></Route>
       <Route
         path="/crowdfunding/fundraisers/"
-        element={<BrowseFundraiser />}
+        element={
+          <>
+            <Header />
+            <BrowseFundraiser />
+            <Footer />
+          </>
+        }
       ></Route>
       <Route
         path="/new/crowdfunding/type=:cat"
@@ -39,7 +45,13 @@ const MainRoutes = () => {
       ></Route>
       <Route
         path="/crowdfunding/fundraisers/:name"
-        element={<FundraiserDetail />}
+        element={
+          <>
+            <Header />
+            <FundraiserDetail />
+            <Footer />
+          </>
+        }
       ></Route>
       <Route path="/crowdfunding" element={<HowItWorks />}></Route>
       <Route
