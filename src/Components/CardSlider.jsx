@@ -224,16 +224,24 @@ export default function CardSlider() {
   };
   const { isOpen, onToggle } = useDisclosure();
   return (
-    <Box>
+    <Box width={["100%", "60%", "100%"]}>
       <Flex alignItems={"center"} mt={"8"} justifyContent={"center"}>
         <Button colorScheme={"none"} onClick={() => onPrevHandler()}>
-          <ChevronLeftIcon color="teal.400" fontSize={"6xl"} />
+          <ChevronLeftIcon
+            color="teal.400"
+            fontSize={"6xl"}
+            display={["none", "none", "block"]}
+          />
         </Button>
         <Grid
-          templateColumns="repeat(3, 1fr)"
+          templateColumns={[
+            "repeat(1, 1fr)",
+            "repeat(2, 1fr)",
+            "repeat(3, 1fr)",
+          ]}
           gap={6}
           marginTop={10}
-          width={"70%"}
+          width={["70%", "40%", "70%"]}
         >
           {sliderData?.length > 0 &&
             sliderData.map((ele) => (
@@ -257,6 +265,7 @@ export default function CardSlider() {
             color="teal.400"
             fontSize={"6xl"}
             onClick={() => onNextHandler()}
+            display={["none", "none", "block"]}
           />
         </Button>
       </Flex>

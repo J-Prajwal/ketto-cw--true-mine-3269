@@ -171,34 +171,34 @@ const Homepage = () => {
           display={"flex"}
           justifyContent={"space-around"}
           gap={"10px"}
-          width={"50%"}
-          height={"8rem"}
+          width={["100%", "100%", "50%"]}
+          height={["8rem", "4rem", "8rem"]}
           borderRadius={"15px"}
         >
           <Box display={"flex"} alignItems="center">
             <Button
               bgColor={"#204b6b"}
               color={"white"}
-              rightIcon={<ChevronRightIcon fontSize={"2xl"} />}
-              size="lg"
-              ml={"5"}
+              rightIcon={<ChevronRightIcon fontSize={["md", "xl", "2xl"]} />}
+              size={["sm", "md", "lg"]}
+              ml={["1", "3", "5"]}
             >
               Donate{" "}
             </Button>
           </Box>
           <Box display={"flex"} alignItems="center">
-            <Box p={2}>
-              <Heading textTransform={"capitalize"} size={"md"} color="#204b6b">
+            <Box p={[1, 2, 2]}>
+              <Heading textTransform={"capitalize"} size={["xs", "sm", "md"]} color="#204b6b">
                 start monthly donation to save lives
               </Heading>
-              <Text fontSize={"sm"} mt={"2"} color="#c5c5c5">
+              <Text fontSize={["10px", "sm", "sm"]} mt={"2"} color="#c5c5c5">
                 With your support, countless children will receive health care
                 and a happy life. Start your monthly donation <br /> today
               </Text>
             </Box>
           </Box>
           <Box
-            width={"30%"}
+            width={["60%", "60%", "30%"]}
             bgSize={"12.6rem"}
             bgPosition={"center"}
             bgRepeat={"no-repeat"}
@@ -214,7 +214,7 @@ const Homepage = () => {
       </Container>
       {/* slider component */}
       <CardSlider />
-      <Flex justifyContent="space-between" mt={"7"}>
+      <Flex justifyContent={["space-between"]} alignItems={["center", "", ""]} mt={"7"} flexDirection={["column", "column", "row"]}>
         <Box width={"77%"}>
           {" "}
           <Text color={"gray"} fontSize={"sm"} textAlign={"center"}>
@@ -222,9 +222,9 @@ const Homepage = () => {
             as 80G, 501(c), etc.
           </Text>{" "}
         </Box>
-        <Box width={"23%"}>
+        <Box width={["50%", "23%", "23%"]} textAlign={["center", "center", "left"]}>
           {" "}
-          <Heading size={"sm"} color={"#01bfbd"}>
+          <Heading size={["xs", "xs", "sm"]} color={"#01bfbd"}>
             View Mores <ArrowForwardIcon />{" "}
           </Heading>{" "}
         </Box>
