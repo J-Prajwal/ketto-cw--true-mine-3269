@@ -24,9 +24,9 @@ const MainRoutes = () => {
       <Route
         path="/new/crowdfunding/type=:cat"
         element={
-          // <RequiredAuth>
+          <RequiredAuth>
               <NewFundRaiser2 />
-        // </RequiredAuth>
+        </RequiredAuth>
         }
       ></Route>
       <Route

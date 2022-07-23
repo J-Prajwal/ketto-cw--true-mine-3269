@@ -45,12 +45,14 @@ export const FundraiserDetail = () => {
       .get("https://qr1zme.sse.codesandbox.io/funds")
       .then((res) => {
         let temp = res.data.filter((el) => {
-          if (el.title.split(" ").join("") == name) {
+          if (el.title?.split(" ").join("") == name) {
             return el;
           }
         });
-
+        console.log(res);
         setcurr(temp[0]);
+
+        // console.log(curr)
       })
       .catch((err) => {
         console.log(err);
@@ -121,41 +123,37 @@ export const FundraiserDetail = () => {
                         <Image src={curr?.about[0].images[0]} />
                       </Container>
                       <Text padding={10}>
-                        {curr ? (
-                          curr.about[0].desc[1]
-                        ) : (
+                        {curr?.about[0].desc[1] || (
                           <Text>
-                            <Heading fontSize="larger">Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Asperiores officia, libero nobis similique
-                            consequuntur repellendus minima aliquam sint eos
-                            molestiae iste facilis pariatur. Est quas error
-                            excepturi similique ratione dolorum.</Heading>
-                            <br/>
-                            <br/>
-                            
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Asperiores officia, libero nobis similique
-                            consequuntur repellendus minima aliquam sint eos
-                            molestiae iste facilis pariatur. Est quas error
-                            excepturi similique ratione dolorum.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Asperiores officia, libero nobis similique
-                            consequuntur repellendus minima aliquam sint eos
-                            molestiae iste facilis pariatur. Est quas error
-                            excepturi similique ratione dolorum.
-                            <br/>
-                            <br/>
-                           
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Asperiores officia, libero nobis similique
-                            consequuntur repellendus minima aliquam sint eos
-                            molestiae iste facilis pariatur. Est quas error
-                            excepturi similique ratione dolorum.
-                            Lorem ipsum dolor sit amet consectetur, adipisicing
-                            elit. Asperiores officia, libero nobis similique
-                            consequuntur repellendus minima aliquam sint eos
-                            molestiae iste facilis pariatur. Est quas error
-                            excepturi similique ratione dolorum.
+                            <Heading fontSize="larger">
+                              Lorem ipsum dolor, sit amet consectetur
+                              adipisicing elit. Quas unde numquam ipsa quidem
+                              corrupti adipisci omnis ex eos error explicabo,
+                              voluptates cum placeat laudantium sint asperiores
+                              velit molestiae vero temporibus.
+                            </Heading>
+                            <br />
+                           <Text>
+                                Lorem ipsum dolor, sit amet consectetur
+                              adipisicing elit. Quas unde numquam ipsa quidem
+                              corrupti adipisci omnis ex eos error explicabo,
+                              voluptates cum placeat laudantium sint asperiores
+                              velit molestiae vero temporibus.
+                              <br />
+                              <br />
+                              Lorem ipsum dolor, sit amet consectetur
+                              adipisicing elit. Quas unde numquam ipsa quidem
+                              corrupti adipisci omnis ex eos error explicabo,
+                              voluptates cum placeat laudantium sint asperiores
+                              velit molestiae vero temporibus.
+                              <br />
+                              <br />
+                              Lorem ipsum dolor, sit amet consectetur
+                              adipisicing elit. Quas unde numquam ipsa quidem
+                              corrupti adipisci omnis ex eos error explicabo,
+                              voluptates cum placeat laudantium sint asperiores
+                              velit molestiae vero temporibus.
+                           </Text>
                           </Text>
                         )}
                       </Text>
