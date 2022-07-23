@@ -36,7 +36,7 @@ const NewFundRaiser2 = () => {
     console.log();
   };
   return (
-    <Box bg="#3d3d3d" w={"100%"}>
+    <Box bg="#3d3d3d" w={"100%"} h={"741px"}>
       <br />
       <Container ml="518px">
         <Menu bg="white">
@@ -210,6 +210,7 @@ const NewFundRaiser2 = () => {
         lineHeight={"55px"}
         fontWeight="bold"
         color={"white"}
+        cursor={"pointer"}
         onClick={() => handleSubmit()}
       >
         Save and continue{" "}

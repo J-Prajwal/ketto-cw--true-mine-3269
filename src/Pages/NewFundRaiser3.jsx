@@ -13,17 +13,23 @@ import {
   Flex,
   Select,
   Container,
+  Image,
 } from "@chakra-ui/react";
 import { navigate } from "react-dom";
-import { ChevronDownIcon, PhoneIcon, ViewOffIcon } from "@chakra-ui/icons";
+import {
+  ChevronDownIcon,
+  PhoneIcon,
+  SearchIcon,
+  ViewOffIcon,
+} from "@chakra-ui/icons";
 
 import { BiEnvelope } from "react-icons/bi";
 import { BsFillPersonFill } from "react-icons/bs";
+import { GrFormSearch } from "react-icons/gr";
 import React, { useState } from "react";
-import { Route, Routes } from "react-router-dom";
-import NewFundRaiser2 from "./NewFundRaiser2";
+import greymark from "../images/greymark.png";
 
-const NewFundRaiser = () => {
+const NewFundRaiser3 = () => {
   const [menu, setMenu] = useState("English");
 
   const handleSubmit = () => {
@@ -106,89 +112,46 @@ const NewFundRaiser = () => {
           fontFamily="Helvetica"
           textAlign={"center"}
         >
-          Start your fund Raiser
+          Tell us about tha patient
         </Text>{" "}
         <hr />
         <br />
-        <Box
-          m="auto"
-          borderRadius="25px"
-          backgroundColor="whitesmoke"
-          padding={"0px"}
-          display="flex"
-          w="90%"
-          justifyContent={"space-around"}
-        >
-          {" "}
-          <Text ml={"35px"} lineHeight={"45px"}>
-            Purpose of raising funds{" "}
-          </Text>{" "}
-          <Menu ml="80px">
-            <MenuButton
-              outline={"none"}
-              border={"none"}
-              bg={"transparent"}
-              as={Button}
-              rightIcon={<ChevronDownIcon />}
-              // rightIcon={<BiEnvelope />}
-            >
-              Medical Treatment
-            </MenuButton>
-            <MenuList mt={"-10"} borderRadius={"15px"} width={"200px"}>
-              <MenuItem borderRadius={"15px 15px 0px 0px"}>Download</MenuItem>
-              <MenuItem>Create a Copy</MenuItem>
-              <MenuItem>Mark as Draft</MenuItem>
-              <MenuItem borderRadius={"0px 0px 15px 15px"}>Delete</MenuItem>
-            </MenuList>
-          </Menu>
-        </Box>
         <br />
         <Stack spacing={3} alignItems="center">
           <Flex w="90%">
-            <Input variant="flushed" placeholder="Name" />
-            <BsFillPersonFill />
+            <Input variant="flushed" placeholder="Patient's full name" />
+            <Image w={"20px"} h={"20px"} bg="grey" src={greymark}></Image>
           </Flex>
 
           <br />
           <Flex w="90%">
-            <Input variant="flushed" placeholder="Emil Address" />
-            <BiEnvelope />
+            <Input variant="flushed" placeholder="Patient's age" />
+            <ChevronDownIcon />
           </Flex>
           <br />
           <Flex w="90%">
-            <Input variant="flushed" placeholder="Create a Password" />
-            <ViewOffIcon />
+            <Input variant="flushed" placeholder="Ailment/Medical Condition" />
+            <SearchIcon color={"#24c7cd"} />
           </Flex>
-
           <br />
           <Flex w="90%">
-            <Input variant="flushed" placeholder="Mobile" />
-            <PhoneIcon />
+            <Input variant="flushed" placeholder="Hospital status" />
+            <ChevronDownIcon />
           </Flex>
           <br />
+          <Flex w="90%">
+            <Input variant="flushed" placeholder="Hospital" />
+            <SearchIcon color={"#24c7cd"} />
+          </Flex>
+          <br />
+          <Flex w="90%">
+            <Input variant="flushed" placeholder="Enter Your City" />
+          </Flex>
           <br />
           <br />
 
           <br />
           <br />
-          <box display="flex">
-            <Text
-              display="inline"
-              fontSize="14px"
-              color="#454545"
-              fontFamily="sans-serif"
-            >
-              Already have an account?
-            </Text>{" "}
-            <Text
-              display="inline"
-              fontSize="14px"
-              color="teal"
-              fontFamily="sans-serif"
-            >
-              Login
-            </Text>
-          </box>
         </Stack>
       </Box>
       <Box
@@ -200,13 +163,16 @@ const NewFundRaiser = () => {
         fontFamily={"sans-serif"}
         textAlign={"center"}
         lineHeight={"55px"}
+        color={"white"}
+        fontSize={"16px"}
+        fontWeight={"bold"}
         cursor={"pointer"}
         onClick={() => handleSubmit()}
       >
-        Next{" "}
+        Save and continue{" "}
       </Box>
     </Box>
   );
 };
 
-export default NewFundRaiser;
+export default NewFundRaiser3;

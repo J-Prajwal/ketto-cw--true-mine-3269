@@ -8,6 +8,7 @@ import Homepage from "./Homepage";
 import HowItWorks from "./HowItWorks";
 import NewFundRaiser from "./NewFundRaiser";
 import NewFundRaiser2 from "./NewFundRaiser2";
+import NewFundRaiser3 from "./NewFundRaiser3";
 
 const MainRoutes = () => {
   return (
@@ -21,7 +22,7 @@ const MainRoutes = () => {
         path="/new/crowdfunding/type=:cat"
         element={
           // <RequiredAuth>
-            <NewFundRaiser />
+          <NewFundRaiser3 />
           // </RequiredAuth>
         }
       ></Route>
