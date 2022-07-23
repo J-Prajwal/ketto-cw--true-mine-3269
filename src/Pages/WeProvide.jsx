@@ -263,8 +263,9 @@ const WeProvide = () => {
 
     <HStack style={{ marginLeft:"20rem", padding:"20px ", marginTop:"3rem"
     }}>
-  <Button backgroundColor={"#30C9C8"} color={"white"} padding={"25"} >
-   START A FUNDRAISER
+  <Button  _hover={{background:"teal"}}backgroundColor={"#30C9C8"} color={"white"} padding={"25"} >
+  START A FUNDRAISER
+
   </Button>
   <Button color={"#30C9C8"} backgroundColor={"white"} padding={"25"} border={"1px solid #30C9C8 "}>
     BROWSE FUNDRAISER
