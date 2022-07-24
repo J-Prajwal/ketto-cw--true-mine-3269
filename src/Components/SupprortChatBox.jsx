@@ -5,7 +5,7 @@ import React, { useState } from "react";
 const SupprortChatBox = () => {
     const [chatbox, setchatbox] = useState(false);
   return (
-    <div>
+    <div style={{zIndex:999}}>
       <Button
         onClick={() => {
           setchatbox(true);
