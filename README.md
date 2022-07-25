@@ -40,7 +40,7 @@ https://drive.google.com/file/d/106fe9aTfX4UDX39Tk-9el-XMlwVQPloP/view?usp=shari
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/GrazewalSingh07)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/grazewal-singh/)
     
-    3. Sangam Singh
+    3. Sangam kumar Singh
 [![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/sangamk04)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sangam-kumar-singh-77110b232/)
     
