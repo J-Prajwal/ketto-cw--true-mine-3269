@@ -57,11 +57,6 @@ https://drive.google.com/file/d/106fe9aTfX4UDX39Tk-9el-XMlwVQPloP/view?usp=shari
 If you have any feedback, please reach out to us at our respective linkedin profiles mentioned above
 
 
-
-
-
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
